@@ -28,7 +28,6 @@ Nezapomeň stránky vhodně prolinkovat (odkazy z jedné stránky na druhou).
 - middleware pro výpis chyb.
 
 ## SQL 
-Název databáze: menuapp
 Při přípravě tabulek v databázi používej prosím jen tyto SQL příkazy. Budeš mít vytvořené 3 tabulky. Níže máš příkazy pro naplnění tabulek vzorovými daty
 Dále máš k dispozici SQL příkaz pro nastavení administrátora - viz ukol v engetu
 
