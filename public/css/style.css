@@ -1,0 +1,130 @@
+
+@import "root.css";
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+:after,
+:before {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  background-color: var(--bg-color);
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+
+}
+
+img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+
+/*Header*/
+header {
+  width: 100%;
+  height: var(--header-height);
+
+  background-color: var(--bg-color);
+  padding: 15px;
+}
+
+.header-items {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo img {
+  width: 70px;
+  height: 70px;
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+  list-style-type: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: var(--secondary-color);
+}
+
+.menu {
+  display: none;
+}
+
+
+
+/*Footer*/
+
+footer {
+  background-color: var(--bg-footer);
+  color: var(--terciary-color);
+  padding: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  box-shadow: 2px -8px 100px 3px var(--terciary-color);
+    margin-top: auto;
+}
+
+@media screen and (min-width: 480px) {
+  .logo img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .menu {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 860px) {
+  .logo img {
+    width: 100px;
+    height: 100px;
+  }
+}

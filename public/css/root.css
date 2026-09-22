@@ -1,0 +1,10 @@
+:root {
+  --primary-color: rgb(61, 58, 41);
+  --secondary-color: rgb(102, 93, 35);
+  --terciary-color: white;
+  --bg-color: white;
+  --bg-section: #ebeacd;
+  --bg-footer: rgb(53, 50, 34);
+  --header-height: 115px;
+  --bg-img: url("../img/risotto-pasta.png");
+}
