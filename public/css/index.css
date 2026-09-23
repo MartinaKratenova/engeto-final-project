@@ -1,0 +1,286 @@
+@import "root.css";
+
+/*Hero*/
+.hero {
+  min-height: 80vh;
+
+  background-image:
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)),
+    var(--bg-img);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--bg-color);
+
+  background-attachment: fixed;
+  padding: 50px 15px;
+
+
+}
+
+.hero .hero-content {
+  width: 80%;
+  max-width: 1300px;
+
+}
+
+.hero h1 {
+  font-size: 6rem;
+  margin-bottom: 20px;
+}
+
+/*Dishes*/
+.our-dishes {
+  background-color: var(--bg-section);
+  padding: 30px 0;
+}
+
+.dishes-list {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+}
+
+.dish1 {
+  position: relative;
+  min-height: 275px;
+  flex-basis: 85%;
+  flex-grow: 3;
+}
+
+.dish2,
+.dish3,
+.dish4,
+.dish5 {
+  min-height: 120px;
+  flex-grow: 1;
+  position: relative;
+  flex-basis: 50%;
+}
+
+.dish1 .name,
+.dish2 .name,
+.dish3 .name,
+.dish4 .name,
+.dish5 .name {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: var(--terciary-color);
+
+}
+
+.dish1 .name {
+  font-size: 2rem;
+}
+
+.dish1 img,
+.dish2 img,
+.dish3 img,
+.dish4 img,
+.dish5 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.dish {
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--bg-color);
+  border: 0.5px solid var(--terciary-color);
+  margin: 0;
+  overflow: hidden;
+  padding: 15px;
+}
+
+
+.dishes {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.dishes h2 {
+  padding: 0 15px;
+}
+
+.small-dishes {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.small {
+  min-height: 150px;
+  padding: 20px;
+  flex-basis: 100%;
+  flex-grow: 1;
+}
+
+.small .name {
+  font-size: 1.35rem;
+}
+
+.dish .name a {
+  text-decoration: none;
+  color: var(--terciary-color);
+  transition: color 0.3s ease;
+}
+
+.dish .name a:visited,
+.dish .name a:hover,
+.dish .name a:active,
+.dish .name a:focus,
+.dish .name a:link {
+  color: var(--terciary-color);
+}
+
+.dish1:hover img,
+.dish2:hover img,
+.dish3:hover img,
+.dish4:hover img,
+.dish5:hover img {
+  transform: scale(1.1);
+  overflow: hidden;
+}
+
+.dish1:hover div.name {
+  font-size: 2.5rem;
+}
+
+.dish2:hover .name,
+.dish3:hover .name,
+.dish4:hover .name,
+.dish5:hover .name {
+  font-size: 2rem;
+}
+
+
+
+@media screen and (min-width: 480px) {
+  .our-dishes {
+    padding: 30px 0;
+  }
+
+  .dishes-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dish1 {
+    min-width: 360px;
+    min-height: 250px;
+    padding: 20px;
+    flex-basis: 100%;
+  }
+
+  .dish1 .name {
+    font-size: 3rem;
+  }
+
+  .small {
+    min-height: 180px;
+    padding: 20px;
+    flex-basis: 50%;
+  }
+
+  .small .name {
+    font-size: 1.5rem;
+  }
+
+  .small-dishes {
+    min-width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+  }
+
+  .dish1:hover div.name {
+    font-size: 3.5rem;
+  }
+
+  .dish2:hover .name,
+  .dish3:hover .name,
+  .dish4:hover .name,
+  .dish5:hover .name {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 860px) {
+  .our-dishes {
+    padding: 50px 0;
+  }
+
+  .dishes-list {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+  }
+
+  .dish1 {
+    flex-basis: 50%;
+    min-width: 460px;
+    min-height: 700px;
+    padding: 40px;
+  }
+
+  .dish1 .name {
+    font-size: 3rem;
+    ;
+  }
+
+  .small {
+    min-height: 230px;
+    padding: 20px;
+    flex-basis: 50%;
+
+  }
+
+  .small .name {
+    font-size: 1.75rem;
+  }
+
+  .small-dishes {
+    min-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+
+  }
+
+
+  .dishes {
+    max-width: 1300px;
+    width: 100%;
+  }
+
+
+
+  .dish1:hover div.name {
+    font-size: 4rem;
+  }
+
+  .dish2:hover .name,
+  .dish3:hover .name,
+  .dish4:hover .name,
+  .dish5:hover .name {
+    font-size: 2.5rem;
+  }
+}
+
+
+@media screen and (min-width: 1300px) {
+  .dishes h2 {
+    padding: 0;
+  }
+
+}
