@@ -19,24 +19,6 @@ const renderCategory = (categoryId) => {
 };
 
 
-//active a remove active
-
-
-
-
-filterItems.forEach(meal => {
-  meal.addEventListener('click', () => {
-
-    filterItems.forEach(item => {
-      item.classList.remove('active');
-    });
-
-    meal.classList.add('active');
-  });
-});
-
-//
-
 const renderMeals = (meals) => {
   sectionDishes.textContent = '';
 
@@ -113,45 +95,34 @@ const createMealCard = (name, price, category_id, description) => {
 
 
 const getAllMeals = () => {
-
-  console.log(dishItems);
-  const response = dishItems;
-
-  const data = response;
-
-  mealItems.forEach(m => {
-    m.addEventListener('click', (e) => {
-      const inputValue = e.target.id;
-      const filteredMeals = data.filter((v) => {
-        return v.category_id === parseInt(inputValue);
-      }
-      );
-
-      renderMeals(filteredMeals);
-
-
-    });
-
-  });
-
-
-  renderMeals(data);
-
+  renderCategory(null);
 };
 
-all.addEventListener('click', (e) => {
+const updateCategoryUrl = (categoryId) => {
+  const url = new URL(window.location.href);
 
-  getAllMeals();
-  console.log(all);
-  console.log(e.target.id);
+  if (categoryId === 'all') {
+    url.searchParams.delete('category');
+  } else {
+    url.searchParams.set('category', categoryId);
+  }
 
+  window.history.pushState({}, '', url);
+};
 
+filterItems.forEach((filter) => {
+  filter.addEventListener('click', () => {
+    filterItems.forEach((item) => item.classList.remove('active'));
+    filter.classList.add('active');
+    updateCategoryUrl(filter.id);
 
-
+    if (filter.id === 'all') {
+      getAllMeals();
+    } else {
+      renderCategory(filter.id);
+    }
+  });
 });
-
-
-getAllMeals();
 
 const selectedCategory = new URLSearchParams(window.location.search).get('category');
 const selectedFilter = selectedCategory
