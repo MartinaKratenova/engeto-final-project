@@ -10,6 +10,14 @@ const filterItems = document.querySelectorAll('.filterItem');
 
 const dishItems = JSON.parse(dishesData.dataset.dishes);
 
+const renderCategory = (categoryId) => {
+  const meals = categoryId === null
+    ? dishItems
+    : dishItems.filter((dish) => dish.category_id === Number(categoryId));
+
+  renderMeals(meals);
+};
+
 
 //active a remove active
 
@@ -111,7 +119,7 @@ const getAllMeals = () => {
 
   const data = response;
 
-   mealItems.forEach(m => {
+  mealItems.forEach(m => {
     m.addEventListener('click', (e) => {
       const inputValue = e.target.id;
       const filteredMeals = data.filter((v) => {
@@ -144,6 +152,16 @@ all.addEventListener('click', (e) => {
 
 
 getAllMeals();
+
+const selectedCategory = new URLSearchParams(window.location.search).get('category');
+const selectedFilter = selectedCategory
+  ? document.getElementById(selectedCategory)
+  : all;
+
+if (selectedFilter) {
+  selectedFilter.classList.add('active');
+  renderCategory(selectedCategory);
+}
 
 
 
