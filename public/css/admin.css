@@ -2,7 +2,7 @@
 
 /*Hero*/
 .hero {
- min-height: 30vh;
+  min-height: 30vh;
 
   background-image:
     linear-gradient(to bottom,
@@ -47,7 +47,7 @@ Add new
   font-size: var(--basic-font-size);
   border: 1px solid rgb(206, 198, 177);
   padding: 10px 20px;
-width: 100%;
+  width: 100%;
   box-shadow: 4px 4px 8px rgb(204, 198, 183);
 
 }
@@ -58,11 +58,22 @@ width: 100%;
 Vypis dat
 *****/
 
-.list1 {
+.list {
   margin: 10px auto;
   width: 80vw;
 }
 
+.desc {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+}
+
+.desc .item {
+  justify-self: start;
+}
 
 .card {
   display: block;
@@ -77,13 +88,15 @@ Vypis dat
 
 .item {
   gap: 5px;
-  font-size: 0.6em;
+  font-size: 0.8em;
 }
 
 .text {
   display: grid;
   gap: 8px;
 }
+
+
 
 
 /*****
@@ -112,23 +125,4 @@ Ikonky
   background-color: transparent;
   padding: 10px;
   width: 50px;
-}
-
-
-/****
-Aktivni form
-*****/
-
-.desc {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
-  gap: 20px;
-  align-items: center;
-  width: 100%;
-}
-
-
-
-.desc .item {
-  justify-self: start;
 }
