@@ -1,0 +1,82 @@
+<%- include ('./partials/header') %>
+
+  <main>
+
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-content">
+
+
+          <h1>Administrace</h1>
+
+
+        </div>
+      </div>
+    </section>
+    <section class="list1 default" id="list1">
+      <div class="container" id="list-container">
+
+        <% dishes.forEach(d=> { %>
+
+          <div class="card">
+            <div class="desc">
+              <div class="title text item">
+                <label for="title" class="label">Nazev</label>
+                <div class="title">
+                  <%=d.name%>
+                </div>
+              </div>
+
+              <div class="description text item">
+                <label for="description" class="label">Popis</label>
+                <div class="description">
+                  <%=d.description%>
+                </div>
+              </div>
+
+              <div class="price text item">
+                <label for="price" class="label">Cena</label>
+                <div class="price">
+                  <%=d.price%>
+                </div>
+              </div>
+
+              <div class="category text item">
+                <label for="category" class="label">Kategorie</label>
+                <div class="category">
+                  <%=d.category%>
+                </div>
+              </div>
+
+
+              <div class="icons item">
+                <button>
+                  <span class="material-icons">
+                    edit
+                  </span>
+                </button>
+                <button>
+                  <span class="material-icons">
+                    delete
+                  </span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+
+          <% }) %>
+
+
+
+    </section>
+
+
+
+
+  </main>
+  <%- include ('./partials/footer') %>

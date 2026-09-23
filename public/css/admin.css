@@ -1,0 +1,110 @@
+@import "root.css";
+
+/*Hero*/
+.hero {
+  min-height: 10vh;
+
+  color: var(--bg-color);
+  background-color: var(--primary-color);
+
+  background-attachment: fixed;
+  padding: 50px 15px;
+  background-position: center;
+
+}
+
+.hero .hero-content {
+  width: 80%;
+  max-width: 1300px;
+
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 0px;
+}
+
+
+
+
+/****
+list
+*****/
+
+
+.list {
+  display: grid;
+  gap: 20px;
+}
+
+
+/****
+Vypis dat
+*****/
+
+.card {
+  display: grid;
+  gap: 15px;
+  border: 1px solid rgb(206, 198, 177);
+  padding: 10px 20px;
+  margin: 10px auto;
+  width: 80vw;
+  box-shadow: 4px 4px 8px rgb(204, 198, 183);
+}
+
+.item {
+  gap: 5px;
+  font-size: 0.6em;
+}
+
+.text {
+  display: grid;
+  gap: 8px;
+}
+
+.icons {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 10px;
+  width: 90px;
+}
+
+/*****
+Ikonky
+*****/
+
+
+.material-icons {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  padding: 10px;
+  width: 90px;
+}
+
+
+/****
+Aktivni form
+*****/
+
+.desc {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+}
+
+
+.desc .item {
+  justify-self: start;
+}
+
