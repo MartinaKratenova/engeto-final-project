@@ -13,9 +13,25 @@
         </div>
       </div>
     </section>
+    <section>
+      <div class="container" id="addNew-container">
+
+      </div>
+    </section>
+
+
     <section class="list1 default" id="list1">
       <div class="container" id="list-container">
 
+
+        <div class="addNew">
+          <button class="addNewBtn" id="addNewBtn">
+            Přidej novou položku
+          </button>
+        </div>
+
+
+        
         <% dishes.forEach(d=> { %>
 
           <div class="card">
@@ -50,12 +66,12 @@
 
 
               <div class="icons item">
-                <button>
+                <button class="iconBtn">
                   <span class="material-icons">
                     edit
                   </span>
                 </button>
-                <button>
+                <button class="iconBtn">
                   <span class="material-icons">
                     delete
                   </span>

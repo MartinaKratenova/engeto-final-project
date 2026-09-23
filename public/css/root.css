@@ -7,4 +7,6 @@
   --bg-footer: rgb(53, 50, 34);
   --header-height: 115px;
   --bg-img: url("../img/risotto-pasta.png");
+  --font: "Poppins", sans-serif;
+  --basic-font-size: 1.5rem;
 }

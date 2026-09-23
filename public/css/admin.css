@@ -2,7 +2,15 @@
 
 /*Hero*/
 .hero {
-  min-height: 10vh;
+ min-height: 30vh;
+
+  background-image:
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)),
+    var(--bg-img);
+  background-repeat: no-repeat;
+  background-size: cover;
 
   color: var(--bg-color);
   background-color: var(--primary-color);
@@ -24,31 +32,46 @@
   margin-bottom: 0px;
 }
 
-
-
-
-/****
-list
+/*****
+Add new
 *****/
 
-
-.list {
-  display: grid;
-  gap: 20px;
+.addNew {
+  margin: 10px auto;
 }
+
+.addNewBtn {
+
+  justify-content: center;
+  font-family: var(--font);
+  font-size: var(--basic-font-size);
+  border: 1px solid rgb(206, 198, 177);
+  padding: 10px 20px;
+width: 100%;
+  box-shadow: 4px 4px 8px rgb(204, 198, 183);
+
+}
+
 
 
 /****
 Vypis dat
 *****/
 
+.list1 {
+  margin: 10px auto;
+  width: 80vw;
+}
+
+
 .card {
-  display: grid;
+  display: block;
+  justify-content: center;
   gap: 15px;
   border: 1px solid rgb(206, 198, 177);
   padding: 10px 20px;
   margin: 10px auto;
-  width: 80vw;
+
   box-shadow: 4px 4px 8px rgb(204, 198, 183);
 }
 
@@ -62,6 +85,11 @@ Vypis dat
   gap: 8px;
 }
 
+
+/*****
+Ikonky
+*****/
+
 .icons {
   display: grid;
   grid-auto-flow: column;
@@ -69,10 +97,6 @@ Vypis dat
   gap: 10px;
   width: 90px;
 }
-
-/*****
-Ikonky
-*****/
 
 
 .material-icons {
@@ -83,11 +107,11 @@ Ikonky
     'opsz' 24
 }
 
-button {
+.iconBtn {
   border: 0;
   background-color: transparent;
   padding: 10px;
-  width: 90px;
+  width: 50px;
 }
 
 
@@ -97,14 +121,14 @@ Aktivni form
 
 .desc {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
   gap: 20px;
   align-items: center;
   width: 100%;
 }
 
 
+
 .desc .item {
   justify-self: start;
 }
-
