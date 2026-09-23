@@ -1,0 +1,150 @@
+@import "root.css";
+
+/*Hero*/
+.hero {
+  min-height: 30vh;
+
+  background-image:
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)),
+    var(--bg-img);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--bg-color);
+
+  background-attachment: fixed;
+  padding: 50px 15px;
+  background-position: center;
+
+}
+
+.hero .hero-content {
+  width: 80%;
+  max-width: 1300px;
+
+}
+
+.hero h1 {
+  font-size: 6rem;
+  margin-bottom: 20px;
+}
+
+
+/*********
+Filter
+
+*********/
+.filterDiv {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.filter {
+  min-height: 44px;
+
+  border: none;
+  list-style-type: none;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  gap: 25px;
+  align-items: center;
+  justify-content: space-around;
+  justify-self: center;
+
+}
+
+.filter li {
+  text-decoration: none;
+  flex-wrap: wrap;
+  color: var(--primary-color);
+
+  min-height: 44px;
+  min-width: 180px;
+  align-self: center;
+  text-align: center;
+  transition: color 0.3s ease;
+
+  font-size: 1.2em;
+}
+
+.filter li:hover,
+.filter li:active,
+.filter li:focus {
+  color: var(--secondary-color);
+  font-weight: bolder;
+
+}
+
+
+
+
+
+.active {
+  color: var(--secondary-color);
+  font-weight: bolder;
+}
+
+.hidden {
+  display: none;
+
+}
+
+/******
+Dish card
+******/
+.dishes {
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+.dish-card {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--secondary-color);
+  padding: 20px;
+  min-height: 200px;
+  max-width: 500px;
+  border-radius: 15px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 4px 4px 25px rgb(196, 182, 182);
+}
+
+.price-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+
+}
+
+.title h3:after {
+  content: "";
+  display: block;
+  width: 90%;
+  height: 2px;
+  background-image: linear-gradient(to right, rgb(182, 79, 79), var(--primary-color), rgb(182, 79, 79));
+
+  justify-self: center;
+}
+
+
+
+.title h3,
+.title div {
+  display: inline;
+}

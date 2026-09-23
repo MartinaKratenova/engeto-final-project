@@ -1,0 +1,48 @@
+<%- include ('./partials/header') %>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-content">
+
+
+          <h1>Naše nabídka</h1>
+          <p>Zde najdete naši nabídku </p>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="dish-filter">
+      <div class="filterDiv">
+        <ul class="filter" id="meals">
+
+          <li class="filterItem all" id="all">Vše</li>
+          <li class="filterItem meal" id="3">Hlavní chody</li>
+          <li class="filterItem meal" id="4">Rizota a těstoviny</li>
+          <li class="filterItem meal" id="1">Předkrmy</li>
+          <li class="filterItem meal" id="2">Polévky</li>
+          <li class="filterItem meal" id="5">Dezerty</li>
+        </ul>
+      </div>
+
+    </section>
+
+
+
+    <section class="dishes" id="dishes">
+      
+        <div id="dishes-data" data-dishes="<%= JSON.stringify(dishes) %>">
+          </div>
+     
+       
+     
+
+
+
+    </section>
+
+  </main>
+
+
+  <%- include ('./partials/footer') %>
