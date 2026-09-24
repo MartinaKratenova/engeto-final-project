@@ -39,7 +39,7 @@
 
             <div class="modalTop">
               <h2 id="addDishTitle" class="modalTitle">Přidej novou položku</h2>
-              <button class="closeModalBtn" id="closeModal" type="button" aria-label="Zavřít">&times;</button>
+              <button class="closeModalCrossBtn" id="closeModal" type="button" aria-label="Zavřít">&times;</button>
 
             </div>
 
@@ -68,11 +68,42 @@
               </select>
 
 
-              <button class="save-dish" type="submit">Uložit položku</button>
+              <button class="saveDish" type="submit">Uložit položku</button>
 
             </form>
 
 
+          </div>
+        </div>
+
+        <!-- Delete confirmation modal -->
+
+        <div class="modal" id="deleteModal" aria-hidden="true">
+
+          <div class="modalContent" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+
+            <div class="modalTop">
+              <div></div>
+              <button class="closeModalCrossBtn" id="closeDeleteModal" type="button" aria-label="Zavřít">&times;</button>
+
+            </div>
+            <h2 id="deleteModalTitle" class="modalTitle">Opravdu chcete smazat tuto položku?</h2>
+
+
+
+
+
+            <div class="deleteModalActions">
+
+              <button class="closeModalBtn" id="confirmDelete" type="button">
+                Ano
+              </button>
+
+              <button class="closeModalBtn" id="cancelDelete" type="button">
+                Ne
+              </button>
+
+            </div>
           </div>
         </div>
 
@@ -120,8 +151,8 @@
 
 
                 <form action="/admin/<%= d.id %>/delete" method="post">
-                 
-                  <button class="iconBtn">
+
+                  <button class="iconBtn deleteBtn" type="submit">
 
                     <span class="material-icons">
                       delete
@@ -131,7 +162,7 @@
 
                 </form>
 
-                
+
               </div>
             </div>
 

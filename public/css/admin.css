@@ -1,10 +1,5 @@
 @import "root.css";
 
-
-body {
- 
-}
-
 /*Hero*/
 .hero {
   min-height: 30vh;
@@ -68,6 +63,7 @@ Add new
   background: rgba(0, 0, 0, 0.70);
   transition: 3s;
   border: 1px solid rgb(206, 198, 177);
+  
 }
 
 .modal.isOpen {
@@ -81,8 +77,10 @@ Add new
   padding: 30px;
   background: var(--bg-color);
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.6);
+
 }
-textarea{
+
+textarea {
   resize: vertical;
 }
 
@@ -93,40 +91,63 @@ textarea{
 }
 
 .modalTitle {
- margin-bottom: 0;
+  margin-bottom: 0;
   font-size: 1.4rem;
 }
 
-.closeModalBtn {
+.closeModalCrossBtn {
   border: 0;
   background: transparent;
   font-size: 2rem;
   cursor: pointer;
+  padding: 5px;
+ 
 
 }
 
-#addDishForm {
+.addDishForm {
   display: grid;
   gap: 8px;
 }
 
-#addDishForm input,
-#addDishForm textarea,
-#addDishForm select {
+.addDishForm input,
+.addDishForm textarea,
+.addDishForm select {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 8px;
-  padding: 10px;
   font: inherit;
+  padding: 10px;
   border: 1px solid rgb(206, 198, 177);
 }
 
-.save-dish {
+
+.saveDish {
   margin-top: 8px;
   padding: 10px 20px;
   border: 1px solid rgb(206, 198, 177);
   font: inherit;
   cursor: pointer;
+}
+/****
+Delete modal
+*****/
+
+
+
+.deleteModalActions {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+ .closeModalBtn {
+  padding: 10px 40px;
+  border: 1px solid rgb(206, 198, 177);
+  font: inherit;
+  cursor: pointer;
+  box-shadow: 4px 4px 8px rgb(204, 198, 183);
 }
 
 .form-message {
@@ -138,13 +159,13 @@ textarea{
 
 
 /****
-Vypis dat
+List
 *****/
 
 .list {
   margin: 10px auto;
   width: 80vw;
-   font-size: 1rem;
+  font-size: 1rem;
 }
 
 .desc {
