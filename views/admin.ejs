@@ -67,10 +67,6 @@
                   <% }) %>
               </select>
 
-              <!-- <p class="form-message" id="formMessage" role="alert">
-
-              </p> -->
-
 
               <button class="save-dish" type="submit">Uložit položku</button>
 
@@ -80,7 +76,7 @@
           </div>
         </div>
 
-
+        <!-- List of dishes cards -->
 
         <% dishes.forEach(d=> { %>
 
@@ -121,11 +117,21 @@
                     edit
                   </span>
                 </button>
-                <button class="iconBtn">
-                  <span class="material-icons">
-                    delete
-                  </span>
-                </button>
+
+
+                <form action="/admin/<%= d.id %>/delete" method="post">
+                 
+                  <button class="iconBtn">
+
+                    <span class="material-icons">
+                      delete
+                    </span>
+
+                  </button>
+
+                </form>
+
+                
               </div>
             </div>
 

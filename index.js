@@ -56,7 +56,7 @@ app.get('/admin', async (req, res, next) => {
 
   });
 
-  
+
 });
 
 
@@ -66,14 +66,14 @@ app.post('/addDish', async (req, res, next) => {
   const description = req.body.description.trim();
   const price = Number(req.body.price.trim());
   const category_id = Number(req.body.category_id);
- 
+
 
   try {
     await pool.query(
       'INSERT INTO menu_items (name, description, price, category_id) VALUES ($1, $2, $3, $4)',
       [name, description, price, category_id]
     );
-    
+
     res.redirect('/admin');
 
 
@@ -84,6 +84,23 @@ app.post('/addDish', async (req, res, next) => {
 });
 
 
+app.post('/admin/:id/delete', async (req, res, next) => {
+
+  try {
+
+    const id = req.params.id;
+    await pool.query('DELETE FROM menu_items WHERE id = $1', [id]);
+
+    res.redirect('/admin');
+  }
+
+  catch (err) {
+
+    console.error('Chyba mazání:', err.message);
+
+    next(err);
+  }
+});
 
 
 app.listen(port, () => {
