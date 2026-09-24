@@ -31,6 +31,58 @@
         </div>
 
 
+        <!-- Add new dish modal -->
+
+        <div class="modal" id="addDishModal" aria-hidden="true">
+          <div class="modalContent" role="dialog" aria-modal="true" aria-labelledby="addDishTitle">
+
+
+            <div class="modalTop">
+              <h2 id="addDishTitle" class="modalTitle">Přidej novou položku</h2>
+              <button class="closeModalBtn" id="closeModal" type="button" aria-label="Zavřít">&times;</button>
+            </div>
+
+
+
+
+            <form id="addDishForm" class="addDishForm" method="POST" action="/addDish">
+
+              <label for="addDishName">Název</label>
+              <input id="addDishName" name="name" type="text" required>
+
+              <label for="addDishDescription">Popis</label>
+              <textarea id="addDishDescription" name="description" rows="4" required></textarea>
+
+              <label for="addDishPrice">Cena</label>
+              <input id="addDishPrice" name="price" type="number" min="0" step="0.01" required>
+
+              <label for="addDishCategory">Kategorie</label>
+              <select id="addDishCategory" name="category_id" required>
+
+                <option value="0" selected>Vyberte kategorii</option>
+
+
+                <% categories.forEach(category=> { %>
+                  <option value="<%= category.id %>">
+                    <%= category.name %>
+                  </option>
+                  <% }) %>
+              </select>
+
+              <p class="form-message" id="formMessage" role="alert">
+
+              </p>
+
+
+              <button class="save-dish" type="submit">Uložit položku</button>
+
+            </form>
+
+
+          </div>
+        </div>
+
+
 
         <% dishes.forEach(d=> { %>
 

@@ -1,5 +1,10 @@
 @import "root.css";
 
+
+body {
+ 
+}
+
 /*Hero*/
 .hero {
   min-height: 30vh;
@@ -52,6 +57,84 @@ Add new
 
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.70);
+  transition: 3s;
+  border: 1px solid rgb(206, 198, 177);
+}
+
+.modal.isOpen {
+  display: flex;
+}
+
+.modalContent {
+  display: block;
+  width: min(100%, 520px);
+  max-width: min(100%, 520px);
+  padding: 30px;
+  background: var(--bg-color);
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.6);
+}
+textarea{
+  resize: vertical;
+}
+
+.modalTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modalTitle {
+ margin-bottom: 0;
+  font-size: 1.4rem;
+}
+
+.closeModalBtn {
+  border: 0;
+  background: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+
+}
+
+#addDishForm {
+  display: grid;
+  gap: 8px;
+}
+
+#addDishForm input,
+#addDishForm textarea,
+#addDishForm select {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  padding: 10px;
+  font: inherit;
+  border: 1px solid rgb(206, 198, 177);
+}
+
+.save-dish {
+  margin-top: 8px;
+  padding: 10px 20px;
+  border: 1px solid rgb(206, 198, 177);
+  font: inherit;
+  cursor: pointer;
+}
+
+.form-message {
+  min-height: 1.4em;
+  margin: 0;
+  color: #9b2c2c;
+}
+
 
 
 /****
@@ -61,6 +144,7 @@ Vypis dat
 .list {
   margin: 10px auto;
   width: 80vw;
+   font-size: 1rem;
 }
 
 .desc {
@@ -88,7 +172,7 @@ Vypis dat
 
 .item {
   gap: 5px;
-  font-size: 0.8em;
+  /* font-size: 0.8em; */
 }
 
 .text {

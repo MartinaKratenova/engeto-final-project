@@ -16,6 +16,8 @@ const port = 3000;
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
 app.get('/', (req, res, next) => {
@@ -44,18 +46,43 @@ app.get('/dishes', async (req, res, next) => {
 app.get('/admin', async (req, res, next) => {
 
   const result = await pool.query('SELECT m.name, m.description, m.price, c.name as category, c.id, m.id from menu_items as m left join categories as c ON c.id = m.category_id');
+  const categories = await pool.query('SELECT id, name FROM categories ORDER BY id');
 
   res.render('admin', {
     cssName: '/css/admin.css',
     jsName: '/js/admin.js',
-    dishes: result.rows
-   
+    dishes: result.rows,
+    categories: categories.rows
+
   });
 
- console.log(result.rows)
+  console.log(result.rows);
 });
 
+app.post('/addDish', async (req, res, next) => {
+  const name = req.body.name.trim();
+  const description = req.body.description.trim();
+  const price = Number(req.body.price.trim());
+  const category_id = Number(req.body.category_id);
 
+
+
+  if (!name || !description || price < 0 || !price || !category_id) {
+    return res.status(400).json({ error: 'Vyplňte všechna pole.' });
+  }
+
+  try {
+    await pool.query(
+      'INSERT INTO menu_items (name, description, price, category_id) VALUES ($1, $2, $3, $4)',
+      [name, description, price, category_id]
+    );
+    res.redirect('/admin');
+
+
+  } catch (error) {
+    next(error);
+  }
+});
 
 
 
@@ -64,4 +91,4 @@ app.listen(port, () => {
   console.log(`Server běží na adrese: http://localhost:${port}`);
 });
 
-//jsem na 11.3
+//jsem na 11.6 -  nutno revidovat AI zmeny
