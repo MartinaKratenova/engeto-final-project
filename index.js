@@ -56,32 +56,31 @@ app.get('/admin', async (req, res, next) => {
 
   });
 
-  console.log(result.rows);
+  
 });
+
+
 
 app.post('/addDish', async (req, res, next) => {
   const name = req.body.name.trim();
   const description = req.body.description.trim();
   const price = Number(req.body.price.trim());
   const category_id = Number(req.body.category_id);
-
-
-
-  if (!name || !description || price < 0 || !price || !category_id) {
-    return res.status(400).json({ error: 'Vyplňte všechna pole.' });
-  }
+ 
 
   try {
     await pool.query(
       'INSERT INTO menu_items (name, description, price, category_id) VALUES ($1, $2, $3, $4)',
       [name, description, price, category_id]
     );
+    
     res.redirect('/admin');
 
 
   } catch (error) {
     next(error);
   }
+
 });
 
 

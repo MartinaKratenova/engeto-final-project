@@ -2,7 +2,7 @@ const addNewButton = document.getElementById('addNewBtn');
 const modal = document.getElementById('addDishModal');
 const closeModalButton = document.getElementById('closeModal');
 const addDishForm = document.getElementById('addDishForm');
-const formMessage = document.getElementById('formMessage');
+const errorMessage = document.getElementById('showError');
 
 const closeModal = () => {
   modal.classList.remove('isOpen');
@@ -12,7 +12,7 @@ const closeModal = () => {
 addNewButton.addEventListener('click', () => {
   modal.classList.add('isOpen');
   modal.setAttribute('aria-hidden', 'false');
- 
+  errorMessage.textContent = '';
 });
 
 closeModalButton.addEventListener('click', closeModal);
@@ -23,30 +23,25 @@ modal.addEventListener('click', (event) => {
   }
 });
 
-// addDishForm.addEventListener('submit', async (event) => {
-//   event.preventDefault();
-//   formMessage.textContent = '';
+addDishForm.addEventListener('submit', async (event) => {
+  errorMessage.textContent = '';
+  errorMessage.classList.add('hidden');
 
+  const name = document.getElementById('addDishName');
+  const desc = document.getElementById('addDishDescription');
+  const price = document.getElementById('addDishPrice');
+  const cat = document.getElementById('addDishCategory');
 
+  const isInvalid = !name.value.trim()
+    || !desc.value.trim()
+    || !price.value
+    || Number(price.value) === 0
+    || !cat.value
+    || Number(cat.value) === 0;
 
-//   const formData = new FormData(addDishForm);
-//   const dish = Object.fromEntries(formData.entries());
-
-//   try {
-//     const response = await fetch('/addDish', {
-//       // method: 'POST',
-//       // headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify(dish)
-//     });
-
-//     const result = await response.json();
-
-//     if (!response.ok) {
-//       throw new Error(result.error || 'Položku se nepodařilo uložit.');
-//     }
-
-//     window.location.reload();
-//   } catch (error) {
-//     formMessage.textContent = error.message;
-//   }
-// });
+  if (isInvalid) {
+    event.preventDefault();
+    errorMessage.textContent = 'Vyplňte všechna policka.';
+    errorMessage.classList.remove('hidden');
+  }
+});

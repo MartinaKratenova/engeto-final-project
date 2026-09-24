@@ -40,9 +40,12 @@
             <div class="modalTop">
               <h2 id="addDishTitle" class="modalTitle">Přidej novou položku</h2>
               <button class="closeModalBtn" id="closeModal" type="button" aria-label="Zavřít">&times;</button>
+
             </div>
 
+<div class="showError hidden" id="showError">
 
+</div>
 
 
             <form id="addDishForm" class="addDishForm" method="POST" action="/addDish">
@@ -59,7 +62,7 @@
               <label for="addDishCategory">Kategorie</label>
               <select id="addDishCategory" name="category_id" required>
 
-                <option value="0" selected>Vyberte kategorii</option>
+                <option value="" selected>Vyberte kategorii</option>
 
 
                 <% categories.forEach(category=> { %>
@@ -69,9 +72,9 @@
                   <% }) %>
               </select>
 
-              <p class="form-message" id="formMessage" role="alert">
+              <!-- <p class="form-message" id="formMessage" role="alert">
 
-              </p>
+              </p> -->
 
 
               <button class="save-dish" type="submit">Uložit položku</button>

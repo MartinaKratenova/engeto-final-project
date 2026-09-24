@@ -50,6 +50,10 @@ h3 {
   margin-bottom: 20px;
 }
 
+.hidden {
+  display: none;
+
+}
 
 /*Header*/
 header {
@@ -128,3 +132,4 @@ footer {
     height: 100px;
   }
 }
+
