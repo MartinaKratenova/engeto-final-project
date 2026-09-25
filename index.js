@@ -45,7 +45,7 @@ app.get('/dishes', async (req, res, next) => {
 
 app.get('/admin', async (req, res, next) => {
 
-  const result = await pool.query('SELECT m.name, m.description, m.price, c.name as category, c.id, m.id from menu_items as m left join categories as c ON c.id = m.category_id');
+  const result = await pool.query('SELECT m.id, m.name, m.description, m.price, c.id AS category_id, c.name AS category FROM menu_items AS m LEFT JOIN categories AS c ON c.id = m.category_id');
   const categories = await pool.query('SELECT id, name FROM categories ORDER BY id');
 
   res.render('admin', {
@@ -97,6 +97,48 @@ app.post('/admin/:id/delete', async (req, res, next) => {
   catch (err) {
 
     console.error('Chyba mazání:', err.message);
+
+    next(err);
+  }
+});
+
+
+app.post('/admin/:id/update', async (req, res, next) => {
+
+  const id = Number(req.params.id);
+  const result = await pool.query(
+    'SELECT m.id, m.name, m.description, m.price, c.id AS category_id, c.name AS category FROM menu_items AS m LEFT JOIN categories AS c ON c.id = m.category_id WHERE m.id = $1',
+    [id]
+  );
+  const categories = await pool.query('SELECT id, name FROM categories ORDER BY id');
+
+  try {
+    const name = String(req.body.name ?? '').trim();
+    const description = String(req.body.description ?? '').trim();
+    const price = Number(req.body.price);
+    const category_id = Number(req.body.category_id);
+
+    if (!name || !description || !req.body.price || Number(req.body.price) <= 0 || !req.body.category_id || Number(req.body.category_id) === 0) {
+      return res.status(400).render('admin', {
+        cssName: '/css/admin.css',
+        jsName: '/js/admin.js',
+        dishes: result.rows,
+        categories: categories.rows,
+        errorMessage: 'Vyplňte všechna policka.'
+      });
+    }
+
+    await pool.query(
+      'UPDATE menu_items SET name = $1, description = $2, price = $3, category_id = $4 WHERE id = $5',
+      [name, description, price, category_id, id]
+    );
+
+    res.redirect('/admin');
+  }
+
+  catch (err) {
+
+    console.error('Chyba editace:', err.message);
 
     next(err);
   }

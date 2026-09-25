@@ -44,6 +44,7 @@
             </div>
 
             <form id="addDishForm" class="addDishForm" method="POST" action="/addDish">
+              <p class="form-message" aria-live="polite"></p>
 
               <label for="addDishName">Název</label>
               <input id="addDishName" name="name" type="text" required>
@@ -76,6 +77,44 @@
           </div>
         </div>
 
+        <!-- Edit dish modal -->
+
+        <div class="modal" id="editDishModal" aria-hidden="true">
+          <div class="modalContent" role="dialog" aria-modal="true" aria-labelledby="editDishTitle">
+
+            <div class="modalTop">
+              <h2 id="editDishTitle" class="modalTitle">Upravit položku</h2>
+              <button class="closeModalCrossBtn" id="closeEditModal" type="button" aria-label="Zavřít">&times;</button>
+            </div>
+
+            <form id="editDishForm" class="addDishForm" method="POST" action="">
+              <p class="form-message" aria-live="polite"></p>
+
+              <label for="editDishName">Název</label>
+              <input id="editDishName" name="name" type="text" required>
+
+              <label for="editDishDescription">Popis</label>
+              <textarea id="editDishDescription" name="description" rows="4" required></textarea>
+
+              <label for="editDishPrice">Cena</label>
+              <input id="editDishPrice" name="price" type="number" min="0" step="0.01" required>
+
+              <label for="editDishCategory">Kategorie</label>
+              <select id="editDishCategory" name="category_id" required>
+                <option value="" selected>Vyberte kategorii</option>
+
+                <% categories.forEach(category=> { %>
+                  <option value="<%= category.id %>">
+                    <%= category.name %>
+                  </option>
+                  <% }) %>
+              </select>
+
+              <button class="saveDish" type="submit">Uložit změny</button>
+            </form>
+          </div>
+        </div>
+
         <!-- Delete confirmation modal -->
 
         <div class="modal" id="deleteModal" aria-hidden="true">
@@ -84,7 +123,8 @@
 
             <div class="modalTop">
               <div></div>
-              <button class="closeModalCrossBtn" id="closeDeleteModal" type="button" aria-label="Zavřít">&times;</button>
+              <button class="closeModalCrossBtn" id="closeDeleteModal" type="button"
+                aria-label="Zavřít">&times;</button>
 
             </div>
             <h2 id="deleteModalTitle" class="modalTitle">Opravdu chcete smazat tuto položku?</h2>
@@ -141,31 +181,24 @@
                 </div>
               </div>
 
-
               <div class="icons item">
-                <button class="iconBtn">
+                <button class="iconBtn editBtn" type="button" data-id="<%= d.id %>" data-name="<%= d.name %>"
+                  data-description="<%= d.description %>" data-price="<%= d.price %>"
+                  data-category-id="<%= d.category_id %>">
                   <span class="material-icons">
                     edit
                   </span>
                 </button>
 
-
                 <form action="/admin/<%= d.id %>/delete" method="post">
-
                   <button class="iconBtn deleteBtn" type="submit">
-
                     <span class="material-icons">
                       delete
                     </span>
-
                   </button>
-
                 </form>
-
-
               </div>
             </div>
-
           </div>
 
 
