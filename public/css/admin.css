@@ -257,8 +257,23 @@ Ikonky
   }
 
   .desc .item {
-
     flex-basis: 18%;
+
+  }
+
+}
+
+
+
+@media screen and (max-width: 800px) {
+  .hero h1 {
+    font-size: 3rem;
+
+  }
+}
+@media screen and (max-width: 380px) {
+  .hero h1 {
+    font-size: 2rem;
 
   }
 }
