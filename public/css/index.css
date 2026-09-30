@@ -42,6 +42,8 @@
   flex-direction: column;
   justify-content: center;
   gap: 1px;
+
+ 
 }
 
 .dish1 {
@@ -98,6 +100,7 @@
   margin: 0;
   overflow: hidden;
   padding: 15px;
+
 }
 
 
@@ -160,6 +163,11 @@
 .dish4:hover .name,
 .dish5:hover .name {
   font-size: 2rem;
+}
+
+.dish img{
+opacity: 1;
+filter: brightness(50%);
 }
 
 
