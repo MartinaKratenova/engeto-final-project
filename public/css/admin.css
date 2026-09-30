@@ -63,7 +63,7 @@ Add new
   background: rgba(0, 0, 0, 0.70);
   transition: 3s;
   border: 1px solid rgb(206, 198, 177);
-  
+
 }
 
 .modal.isOpen {
@@ -101,7 +101,7 @@ textarea {
   font-size: 2rem;
   cursor: pointer;
   padding: 5px;
- 
+
 
 }
 
@@ -129,6 +129,7 @@ textarea {
   font: inherit;
   cursor: pointer;
 }
+
 /****
 Delete modal
 *****/
@@ -139,10 +140,11 @@ Delete modal
   display: flex;
   justify-content: space-evenly;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
- .closeModalBtn {
+.closeModalBtn {
   padding: 10px 40px;
   border: 1px solid rgb(206, 198, 177);
   font: inherit;
@@ -169,15 +171,25 @@ List
 }
 
 .desc {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+  display: flex;
+  justify-content: left;
+  /* flex: 1 1 1 1 160px; */
   gap: 20px;
-  align-items: center;
   width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .desc .item {
   justify-self: start;
+  flex-basis: 90%;
+
+}
+
+.description {
+  flex-grow: 3;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .card {
@@ -193,15 +205,18 @@ List
 
 .item {
   gap: 5px;
-  /* font-size: 0.8em; */
+
 }
 
 .text {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
 }
 
-
+.label {
+  font-weight: bold;
+}
 
 
 /*****
@@ -209,9 +224,10 @@ Ikonky
 *****/
 
 .icons {
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
+  display: flex;
+  flex-flow: row;
+  align-content: center;
+  justify-content: center;
   gap: 10px;
   width: 90px;
 }
@@ -230,4 +246,19 @@ Ikonky
   background-color: transparent;
   padding: 10px;
   width: 50px;
+}
+
+
+@media screen and (min-width: 1100px) {
+
+  .desc {
+    align-items: flex-start;
+
+  }
+
+  .desc .item {
+
+    flex-basis: 18%;
+
+  }
 }
