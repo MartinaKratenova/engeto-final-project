@@ -19,12 +19,12 @@ const getFormMessage = (form) => form.querySelector('.form-message');
 
 const closeModal = (modalName) => {
   modalName.classList.remove('isOpen');
-  modalName.setAttribute('aria-hidden', 'true');
+ 
 };
 
 const openModal = (modalName) => {
   modalName.classList.add('isOpen');
-  modalName.setAttribute('aria-hidden', 'false');
+  
 };
 
 const validateDishForm = (form) => {
