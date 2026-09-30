@@ -13,12 +13,14 @@
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
   <title>Web dev project</title>
 
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="<%= cssName %>">
-  
+
 
 
 </head>
@@ -34,13 +36,37 @@
         </div>
         <nav class="menu">
           <ul>
-            <li><a href="/">Domů</a></li>
-            <li><a href="/dishes">Nabídka</a></li>
-            <li><a href="/admin">Admin</a></li>
+            <li><a href="/">Domů</a> </li>
+            <li><a href="/dishes">Nabídka</a> </li>
+            <li><a href="/admin">Administrace</a> </li>
 
           </ul>
         </nav>
+
+        <!-- The overlay -->
+        <div id="myNav" class="overlay">
+
+          <button class="closeNavBtn" id="closeNavBtn" type="button" aria-label="Zavřít">&times;</button>
+
+          <div class="overlay-content">
+
+            <a href="/">Domů</a>
+            <a href="/dishes">Nabídka</a>
+            <a href="/admin">Administrace</a>
+
+          </div>
+
+        </div>
+        <button class="openNavBtn " id="openNavBtn" type="button" aria-label="Otevřít">
+
+          <i class="fa fa-bars burger-icon"></i>
+
+        </button>
+
+
       </div>
     </div>
+
+
 
   </header>

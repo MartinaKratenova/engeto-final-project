@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res, next) => {
   res.render('index', {
     cssName: '/css/index.css',
-    jsName: '/js/index.js'
+    jsName: '/js/main.js'
   });
 
 });
