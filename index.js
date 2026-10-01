@@ -1,6 +1,7 @@
 import express from 'express';
 import 'dotenv/config';
 import bcrypt from 'bcrypt';
+import session from 'express-session';
 
 import pkg from 'pg';
 const { Pool } = pkg;
@@ -19,7 +20,14 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}
+));
 
+/*    Main page   */
 
 app.get('/', (req, res, next) => {
   res.render('index', {
@@ -29,6 +37,7 @@ app.get('/', (req, res, next) => {
 
 });
 
+/*    Dishes / Nabidka   */
 
 app.get('/dishes', async (req, res, next) => {
 
@@ -44,6 +53,8 @@ app.get('/dishes', async (req, res, next) => {
 
 });
 
+/*    Login    */
+
 app.get('/login', async (req, res, next) => {
   res.render('login', {
     cssName: '/css/login.css',
@@ -58,22 +69,31 @@ app.post('/login', async (req, res, next) => {
   const result = await pool.query('SELECT * FROM admins WHERE email = $1', [email]);
 
   if (result.rows.length > 0) {
-    console.log('Uživatel nalezen:', result.rows[0]);
-    const comparePassword = await bcrypt.compare(password, result.rows[0].password);
+    const comparePassword = await bcrypt.compare(password, result.rows[0].password_hash);
+
 
     if (comparePassword) {
+      req.session.user = {
+        id: result.rows[0].id,
+        email: result.rows[0].email
+      };
+
       res.redirect('/admin');
 
     } else {
-      return res.send('Zadali jste neplatné přihlašovací údaje');}
-
-    } else {
-
       return res.send('Zadali jste neplatné přihlašovací údaje');
     }
 
+  } else {
 
-  });
+    return res.send('Zadali jste neplatné přihlašovací údaje');
+  }
+
+
+});
+
+
+/*    Administration   */
 
 
 app.get('/admin', async (req, res, next) => {
@@ -178,8 +198,10 @@ app.post('/admin/:id/update', async (req, res, next) => {
 });
 
 
+
+
 app.listen(port, () => {
   console.log(`Server běží na adrese: http://localhost:${port}`);
 });
 
-//jsem na 11.6 -  nutno revidovat AI zmeny
+//jsem na 12.6 - další budou změny kvůli přihlášení
