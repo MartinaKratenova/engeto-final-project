@@ -1,3 +1,6 @@
+@import "root.css";
+
+
 .page-hero {
   min-height: 30vh;
 
@@ -25,4 +28,37 @@
 .page-hero h1 {
   font-size: 6rem;
   margin-bottom: 20px;
+}
+
+.login-form {
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color-light);
+  margin: 50px auto;
+  padding: 50px 70px;
+  max-width: 500px;
+  
+  box-shadow: 4px 4px 8px rgb(204, 198, 183);
+  font-size: var(--basic-font-size);
+}
+
+.login-form input,
+.login-form button {
+  min-width: 200px;
+  min-height: 40px;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+
+
+}
+
+.btn {
+  justify-content: center;
+  font-family: var(--font);
+  font-size: var(--basic-font-size);
+  border: 1px solid rgb(206, 198, 177);
+  padding: 10px 20px;
+  width: 100%;
+  margin: 20px 0;
+
 }
