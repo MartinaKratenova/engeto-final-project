@@ -22,7 +22,7 @@ body {
   flex-direction: column;
 }
 
-.container {
+.site-layout__container {
   max-width: 1300px;
   margin: 0 auto;
 
@@ -49,13 +49,13 @@ h3 {
   margin-bottom: 20px;
 }
 
-.hidden {
+.site-layout--hidden {
   display: none;
 
 }
 
 /*Header*/
-header {
+.site-header {
   width: 100%;
   height: var(--header-height);
 
@@ -63,7 +63,7 @@ header {
   padding: 15px;
 }
 
-.header-items {
+.site-header__items {
   display: flex;
   flex-direction: row;
 
@@ -71,7 +71,7 @@ header {
   align-items: center; */
 }
 
-.big-screen-menu {
+.site-header__desktop-menu {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -80,12 +80,12 @@ header {
   align-items: center;
 }
 
-.logo img {
+.site-header__logo img {
   width: 100px;
   height: 100px;
 }
 
-.menu ul {
+.site-header__menu-list {
   display: flex;
   flex-direction: row;
   gap: 30px;
@@ -93,23 +93,23 @@ header {
   list-style-type: none;
 }
 
-.menu a {
+.site-header__menu-link {
   text-decoration: none;
   color: var(--primary-color);
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
-.menu a:hover {
+.site-header__menu-link:hover {
   color: var(--secondary-color);
 }
 
-.menu {
+.site-header__menu {
   display: none;
 }
 
 /* The Overlay */
-.overlay {
+.site-header__overlay {
   display: none;
   height: 100%;
   width: 100%;
@@ -127,7 +127,7 @@ header {
 }
 
 /* Position the content inside the overlay */
-.overlay-content {
+.site-header__overlay-content {
   position: relative;
   top: 25%;
 
@@ -140,7 +140,7 @@ header {
 }
 
 
-.overlay a {
+.site-header__overlay-link {
   padding: 8px;
   text-decoration: none;
   font-size: 36px;
@@ -151,13 +151,13 @@ header {
 
 }
 
-.overlay a:hover,
-.overlay a:focus {
+.site-header__overlay-link:hover,
+.site-header__overlay-link:focus {
 
   font-weight: bold;
 }
 
-.overlay .closeNavBtn {
+.site-header__overlay .site-header__close-button {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -170,11 +170,11 @@ header {
   color: var(--terciary-color);
 }
 
-.overlayOn {
+.site-header__overlay--open {
   display: block;
 }
 
-.openNavBtn {
+.site-header__open-button {
   border: 0;
   background: transparent;
   font-size: 2rem;
@@ -183,7 +183,7 @@ header {
   color: var(--primary-color);
 }
 
-.burger-icon {
+.site-header__menu-icon {
   display: block;
 
 }
@@ -191,11 +191,11 @@ header {
 
 
 @media screen and (max-height: 479px) {
-  .overlay a {
+  .site-header__overlay-link {
     font-size: 20px
   }
 
-  .overlay .closeNavBtn {
+  .site-header__overlay .site-header__close-button {
     font-size: 40px;
     top: 15px;
     right: 35px;
@@ -206,7 +206,7 @@ header {
 
 /*Footer*/
 
-footer {
+.site-footer {
   background-color: var(--bg-footer);
   color: var(--terciary-color);
   padding: 10px;
@@ -219,17 +219,17 @@ footer {
 @media screen and (min-width: 480px) {
 
 
-  .burger-icon {
+  .site-header__menu-icon {
     display: none;
   }
 
-  .menu {
+  .site-header__menu {
     display: block;
   }
 }
 
 @media screen and (min-width: 860px) {
-  .logo img {
+  .site-header__logo img {
     width: 100px;
     height: 100px;
   }

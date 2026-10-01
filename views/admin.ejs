@@ -1,10 +1,10 @@
 <%- include ('./partials/header') %>
 
-<main>
+  <main>
 
-    <section class="hero" id="hero">
-      <div class="container">
-        <div class="hero-content">
+    <section class="page-hero" id="hero">
+      <div class="site-layout__container">
+        <div class="page-hero__content">
 
 
           <h1>Administrace</h1>
@@ -14,18 +14,18 @@
       </div>
     </section>
     <section>
-      <div class="container" id="addNew-container">
+      <div class="site-layout__container" id="addNew-container">
 
       </div>
     </section>
 
 
-    <section class="list default" id="list">
-      <div class="container" id="list-container">
+    <section class="admin-menu__list admin-menu__list--default" id="list">
+      <div class="site-layout__container" id="list-container">
 
 
-        <div class="addNew">
-          <button class="addNewBtn" id="addNewBtn">
+        <div class="admin-menu__add">
+          <button class="admin-menu__add-button" id="addNewBtn">
             Přidej novou položku
           </button>
         </div>
@@ -33,18 +33,19 @@
 
         <!-- Add new dish modal -->
 
-        <div class="modal" id="addDishModal" >
-          <div class="modalContent" role="dialog" aria-modal="true" aria-labelledby="addDishTitle">
+        <div class="admin-modal" id="addDishModal">
+          <div class="admin-modal__content" role="dialog" aria-modal="true" aria-labelledby="addDishTitle">
 
 
-            <div class="modalTop">
-              <h2 id="addDishTitle" class="modalTitle">Přidej novou položku</h2>
-              <button class="closeModalCrossBtn" id="closeModal" type="button" aria-label="Zavřít">&times;</button>
+            <div class="admin-modal__header">
+              <h2 id="addDishTitle" class="admin-modal__title">Přidej novou položku</h2>
+              <button class="admin-modal__close-button" id="closeModal" type="button"
+                aria-label="Zavřít">&times;</button>
 
             </div>
 
-            <form id="addDishForm" class="addDishForm" method="POST" action="/addDish">
-              <p class="form-message" aria-live="polite"></p>
+            <form id="addDishForm" class="admin-dish-form" method="POST" action="/addDish">
+              <p class="admin-dish-form__message" aria-live="polite"></p>
 
               <label for="addDishName">Název</label>
               <input id="addDishName" name="name" type="text" required>
@@ -69,7 +70,7 @@
               </select>
 
 
-              <button class="saveDish" type="submit">Uložit položku</button>
+              <button class="admin-dish-form__submit" type="submit">Uložit položku</button>
 
             </form>
 
@@ -79,16 +80,17 @@
 
         <!-- Edit dish modal -->
 
-        <div class="modal" id="editDishModal" >
-          <div class="modalContent" role="dialog" aria-modal="true" aria-labelledby="editDishTitle">
+        <div class="admin-modal" id="editDishModal">
+          <div class="admin-modal__content" role="dialog" aria-modal="true" aria-labelledby="editDishTitle">
 
-            <div class="modalTop">
-              <h2 id="editDishTitle" class="modalTitle">Upravit položku</h2>
-              <button class="closeModalCrossBtn" id="closeEditModal" type="button" aria-label="Zavřít">&times;</button>
+            <div class="admin-modal__header">
+              <h2 id="editDishTitle" class="admin-modal__title">Upravit položku</h2>
+              <button class="admin-modal__close-button" id="closeEditModal" type="button"
+                aria-label="Zavřít">&times;</button>
             </div>
 
-            <form id="editDishForm" class="addDishForm" method="POST" action="">
-              <p class="form-message" aria-live="polite"></p>
+            <form id="editDishForm" class="admin-dish-form" method="POST" action="">
+              <p class="admin-dish-form__message" aria-live="polite"></p>
 
               <label for="editDishName">Název</label>
               <input id="editDishName" name="name" type="text" required>
@@ -110,36 +112,36 @@
                   <% }) %>
               </select>
 
-              <button class="saveDish" type="submit">Uložit změny</button>
+              <button class="admin-dish-form__submit" type="submit">Uložit změny</button>
             </form>
           </div>
         </div>
 
         <!-- Delete confirmation modal -->
 
-        <div class="modal" id="deleteModal" >
+        <div class="admin-modal" id="deleteModal">
 
-          <div class="modalContent" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+          <div class="admin-modal__content" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle">
 
-            <div class="modalTop">
+            <div class="admin-modal__header">
               <div></div>
-              <button class="closeModalCrossBtn" id="closeDeleteModal" type="button"
+              <button class="admin-modal__close-button" id="closeDeleteModal" type="button"
                 aria-label="Zavřít">&times;</button>
 
             </div>
-            <h2 id="deleteModalTitle" class="modalTitle">Opravdu chcete smazat tuto položku?</h2>
+            <h2 id="deleteModalTitle" class="admin-modal__title">Opravdu chcete smazat tuto položku?</h2>
 
 
 
 
 
-            <div class="deleteModalActions">
+            <div class="admin-modal__actions">
 
-              <button class="closeModalBtn" id="confirmDelete" type="button">
+              <button class="admin-modal__action-button" id="confirmDelete" type="button">
                 Ano
               </button>
 
-              <button class="closeModalBtn" id="cancelDelete" type="button">
+              <button class="admin-modal__action-button" id="cancelDelete" type="button">
                 Ne
               </button>
 
@@ -151,39 +153,39 @@
 
         <% dishes.forEach(d=> { %>
 
-          <div class="card">
-            <div class="desc">
-              <div class="title text item">
-                <label for="title" class="label">Nazev</label>
-                <div class="title">
+          <div class="admin-dish">
+            <div class="admin-dish__details">
+              <div class="admin-dish__field admin-dish__field--text">
+                <label for="title" class="admin-dish__label">Nazev</label>
+                <div class="admin-dish__value admin-dish__value--title">
                   <%=d.name%>
                 </div>
               </div>
 
-              <div class="description text item">
-                <label for="description" class="label">Popis</label>
-                <div class="description">
+              <div class="admin-dish__field admin-dish__field--text admin-dish__field--description">
+                <label for="description" class="admin-dish__label">Popis</label>
+                <div class="admin-dish__value admin-dish__value--description">
                   <%=d.description%>
                 </div>
               </div>
 
-              <div class="price text item">
-                <label for="price" class="label">Cena</label>
-                <div class="price">
+              <div class="admin-dish__field admin-dish__field--text">
+                <label for="price" class="admin-dish__label">Cena</label>
+                <div class="admin-dish__value">
                   <%=d.price%>
                 </div>
               </div>
 
-              <div class="category text item">
-                <label for="category" class="label">Kategorie</label>
-                <div class="category">
+              <div class="admin-dish__field admin-dish__field--text">
+                <label for="category" class="admin-dish__label">Kategorie</label>
+                <div class="admin-dish__value">
                   <%=d.category%>
                 </div>
               </div>
 
-              <div class="icons item">
-                <button class="iconBtn editBtn" type="button" data-id="<%= d.id %>" data-name="<%= d.name %>"
-                  data-description="<%= d.description %>" data-price="<%= d.price %>"
+              <div class="admin-dish__actions">
+                <button class="admin-dish__icon-button admin-dish__edit-button" type="button" data-id="<%= d.id %>"
+                  data-name="<%= d.name %>" data-description="<%= d.description %>" data-price="<%= d.price %>"
                   data-category-id="<%= d.category_id %>">
                   <span class="material-icons">
                     edit
@@ -191,7 +193,7 @@
                 </button>
 
                 <form action="/admin/<%= d.id %>/delete" method="post">
-                  <button class="iconBtn deleteBtn" type="submit">
+                  <button class="admin-dish__icon-button admin-dish__delete-button" type="submit">
                     <span class="material-icons">
                       delete
                     </span>

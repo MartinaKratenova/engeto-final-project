@@ -25,42 +25,42 @@
 
 </head>
 
-<body>
-  <header class="header">
-    <div class="container">
-      <div class="header-items">
-        <div class="big-screen-menu">
-          <div class="logo">
+<body class="site-layout">
+  <header class="site-header">
+    <div class="site-layout__container">
+      <div class="site-header__items">
+        <div class="site-header__desktop-menu">
+          <div class="site-header__logo">
             <a href="/">
               <img src="img/logo-nobg.png" alt="Logo">
             </a>
           </div>
-          <nav class="menu">
-            <ul>
-              <li><a href="/">Domů</a> </li>
-              <li><a href="/dishes">Nabídka</a> </li>
-              <li><a href="/admin">Administrace</a> </li>
+          <nav class="site-header__menu">
+            <ul class="site-header__menu-list">
+              <li><a class="site-header__menu-link" href="/">Domů</a> </li>
+              <li><a class="site-header__menu-link" href="/dishes">Nabídka</a> </li>
+              <li><a class="site-header__menu-link" href="/admin">Administrace</a> </li>
 
             </ul>
           </nav>
         </div>
         <!-- The overlay -->
-        <div id="myNav" class="overlay">
+        <div id="myNav" class="site-header__overlay">
 
-          <button class="closeNavBtn" id="closeNavBtn" type="button" aria-label="Zavřít">&times;</button>
+          <button class="site-header__close-button" id="closeNavBtn" type="button" aria-label="Zavřít">&times;</button>
 
-          <div class="overlay-content">
+          <div class="site-header__overlay-content">
 
-            <a href="/">Domů</a>
-            <a href="/dishes">Nabídka</a>
-            <a href="/admin">Administrace</a>
+            <a class="site-header__overlay-link" href="/">Domů</a>
+            <a class="site-header__overlay-link" href="/dishes">Nabídka</a>
+            <a class="site-header__overlay-link" href="/admin">Administrace</a>
 
           </div>
 
         </div>
-        <button class="openNavBtn " id="openNavBtn" type="button" aria-label="Otevřít">
+        <button class="site-header__open-button" id="openNavBtn" type="button" aria-label="Otevřít">
 
-          <i class="fa fa-bars burger-icon"></i>
+          <i class="fa fa-bars site-header__menu-icon"></i>
 
         </button>
 

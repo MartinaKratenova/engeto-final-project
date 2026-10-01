@@ -1,9 +1,9 @@
 <%- include ('./partials/header') %>
 
   <main>
-    <section class="hero" id="hero">
-      <div class="container">
-        <div class="hero-content">
+    <section class="page-hero" id="hero">
+      <div class="site-layout__container">
+        <div class="page-hero__content">
 
 
           <h1>Naše nabídka</h1>
@@ -13,16 +13,16 @@
       </div>
     </section>
 
-    <section class="dish-filter">
-      <div class="filterDiv">
-        <ul class="filter" id="meals">
+    <section class="dish-catalog__filters">
+      <div class="dish-catalog__filter-container">
+        <ul class="dish-catalog__filter-list" id="meals">
 
-          <li class="filterItem all" id="all">Vše</li>
-          <li class="filterItem meal" id="3">Hlavní chody</li>
-          <li class="filterItem meal" id="4">Rizota a těstoviny</li>
-          <li class="filterItem meal" id="1">Předkrmy</li>
-          <li class="filterItem meal" id="2">Polévky</li>
-          <li class="filterItem meal" id="5">Dezerty</li>
+          <li class="dish-catalog__filter-item dish-catalog__filter-item--all" id="all">Vše</li>
+          <li class="dish-catalog__filter-item dish-catalog__filter-item--category" id="3">Hlavní chody</li>
+          <li class="dish-catalog__filter-item dish-catalog__filter-item--category" id="4">Rizota a těstoviny</li>
+          <li class="dish-catalog__filter-item dish-catalog__filter-item--category" id="1">Předkrmy</li>
+          <li class="dish-catalog__filter-item dish-catalog__filter-item--category" id="2">Polévky</li>
+          <li class="dish-catalog__filter-item dish-catalog__filter-item--category" id="5">Dezerty</li>
         </ul>
       </div>
 
@@ -30,13 +30,13 @@
 
 
 
-    <section class="dishes" id="dishes">
-      
-        <div id="dishes-data" data-dishes="<%= JSON.stringify(dishes) %>">
-          </div>
-     
-       
-     
+    <section class="dish-catalog__results" id="dishes">
+
+      <div id="dishes-data" data-dishes="<%= JSON.stringify(dishes) %>">
+      </div>
+
+
+
 
 
 

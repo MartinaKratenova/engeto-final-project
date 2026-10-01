@@ -11,20 +11,20 @@ const editDishForm = document.getElementById('editDishForm');
 const deleteModal = document.getElementById('deleteModal');
 const cancelDeleteButton = document.getElementById('cancelDelete');
 const confirmDeleteButton = document.getElementById('confirmDelete');
-const deleteButtons = document.querySelectorAll('.deleteBtn');
-const editButtons = document.querySelectorAll('.editBtn');
+const deleteButtons = document.querySelectorAll('.admin-dish__delete-button');
+const editButtons = document.querySelectorAll('.admin-dish__edit-button');
 let deleteForm;
 
-const getFormMessage = (form) => form.querySelector('.form-message');
+const getFormMessage = (form) => form.querySelector('.admin-dish-form__message');
 
 const closeModal = (modalName) => {
-  modalName.classList.remove('isOpen');
- 
+  modalName.classList.remove('admin-modal--open');
+
 };
 
 const openModal = (modalName) => {
-  modalName.classList.add('isOpen');
-  
+  modalName.classList.add('admin-modal--open');
+
 };
 
 const validateDishForm = (form) => {

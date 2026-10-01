@@ -1,7 +1,7 @@
 @import "root.css";
 
 /*Hero*/
-.hero {
+.page-hero {
   min-height: 80vh;
 
   background-image:
@@ -19,58 +19,55 @@
 
 }
 
-.hero .hero-content {
+.page-hero__content {
   width: 80%;
   max-width: 1300px;
 
 }
 
-.hero h1 {
+.page-hero h1 {
   font-size: 6rem;
   margin-bottom: 20px;
 }
-.text{
+
+.home-menu__description {
   margin-bottom: 50px;
 }
 
 /*Dishes*/
-.our-dishes {
+.home-menu {
   background-color: var(--bg-section);
   padding: 30px 0;
 }
 
-.dishes-list {
+.home-menu__category-list {
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1px;
 
- 
+
 }
 
-.dish1 {
+.home-menu__category--main {
   position: relative;
   min-height: 275px;
   flex-basis: 85%;
   flex-grow: 3;
 }
 
-.dish2,
-.dish3,
-.dish4,
-.dish5 {
+.home-menu__category--soups,
+.home-menu__category--starters,
+.home-menu__category--desserts,
+.home-menu__category--pasta {
   min-height: 120px;
   flex-grow: 1;
   position: relative;
   flex-basis: 50%;
 }
 
-.dish1 .name,
-.dish2 .name,
-.dish3 .name,
-.dish4 .name,
-.dish5 .name {
+.home-menu__name {
   position: absolute;
   top: 15px;
   left: 15px;
@@ -78,15 +75,11 @@
 
 }
 
-.dish1 .name {
+.home-menu__category--main .home-menu__name {
   font-size: 2rem;
 }
 
-.dish1 img,
-.dish2 img,
-.dish3 img,
-.dish4 img,
-.dish5 img {
+.home-menu__image {
   position: absolute;
   top: 0;
   left: 0;
@@ -95,7 +88,7 @@
   overflow: hidden;
 }
 
-.dish {
+.home-menu__category {
   background-repeat: no-repeat;
   background-size: cover;
   color: var(--bg-color);
@@ -107,160 +100,150 @@
 }
 
 
-.dishes {
+.home-menu__section {
   display: flex;
   flex-direction: column;
 
 }
 
-.dishes h2 {
+.home-menu__section h2 {
   padding: 0 15px;
 }
 
-.small-dishes {
+.home-menu__secondary-list {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
 }
 
-.small {
+.home-menu__category--small {
   min-height: 150px;
   padding: 20px;
   flex-basis: 100%;
   flex-grow: 1;
 }
 
-.small .name {
+.home-menu__category--small .home-menu__name {
   font-size: 1.35rem;
 }
 
-.dish .name a {
+.home-menu__category-link {
   text-decoration: none;
   color: var(--terciary-color);
   transition: color 0.3s ease;
 }
 
-.dish .name a:visited,
-.dish .name a:hover,
-.dish .name a:active,
-.dish .name a:focus,
-.dish .name a:link {
+.home-menu__category-link:visited,
+.home-menu__category-link:hover,
+.home-menu__category-link:active,
+.home-menu__category-link:focus,
+.home-menu__category-link:link {
   color: var(--terciary-color);
 }
 
-.dish1:hover img,
-.dish2:hover img,
-.dish3:hover img,
-.dish4:hover img,
-.dish5:hover img {
+.home-menu__category:hover .home-menu__image {
   transform: scale(1.1);
   overflow: hidden;
 }
 
-.dish1:hover div.name {
+.home-menu__category--main:hover .home-menu__name {
   font-size: 2.5rem;
 }
 
-.dish2:hover .name,
-.dish3:hover .name,
-.dish4:hover .name,
-.dish5:hover .name {
+.home-menu__category--small:hover .home-menu__name {
   font-size: 2rem;
 }
 
-.dish img{
-opacity: 1;
-filter: brightness(50%);
+.home-menu__image {
+  opacity: 1;
+  filter: brightness(50%);
 }
 
 
 
 @media screen and (min-width: 480px) {
-  .our-dishes {
+  .home-menu {
     padding: 30px 0;
   }
 
-  .dishes-list {
+  .home-menu__category-list {
     display: flex;
     flex-direction: column;
   }
 
-  .dish1 {
+  .home-menu__category--main {
     min-width: 360px;
     min-height: 250px;
     padding: 20px;
     flex-basis: 100%;
   }
 
-  .dish1 .name {
+  .home-menu__category--main .home-menu__name {
     font-size: 3rem;
   }
 
-  .small {
+  .home-menu__category--small {
     min-height: 180px;
     padding: 20px;
     flex-basis: 50%;
   }
 
-  .small .name {
+  .home-menu__category--small .home-menu__name {
     font-size: 1.5rem;
   }
 
-  .small-dishes {
+  .home-menu__secondary-list {
     min-width: 200px;
     display: flex;
     flex-wrap: wrap;
     flex-basis: 50%;
   }
 
-  .dish1:hover div.name {
+  .home-menu__category--main:hover .home-menu__name {
     font-size: 3.5rem;
   }
 
-  .dish2:hover .name,
-  .dish3:hover .name,
-  .dish4:hover .name,
-  .dish5:hover .name {
+  .home-menu__category--small:hover .home-menu__name {
     font-size: 2.5rem;
   }
 }
 
 @media screen and (min-width: 860px) {
-  .our-dishes {
+  .home-menu {
     padding: 50px 0;
   }
 
-  .dishes-list {
+  .home-menu__category-list {
     display: flex;
     flex-direction: row;
     width: 100%;
     margin: 0;
   }
 
-  .dish1 {
+  .home-menu__category--main {
     flex-basis: 50%;
     min-width: 460px;
     min-height: 700px;
     padding: 40px;
   }
 
-  .dish1 .name {
+  .home-menu__category--main .home-menu__name {
     font-size: 3rem;
     ;
   }
 
-  .small {
+  .home-menu__category--small {
     min-height: 230px;
     padding: 20px;
     flex-basis: 50%;
 
   }
 
-  .small .name {
+  .home-menu__category--small .home-menu__name {
     font-size: 1.75rem;
   }
 
-  .small-dishes {
+  .home-menu__secondary-list {
     min-width: 400px;
     display: flex;
     flex-wrap: wrap;
@@ -269,28 +252,25 @@ filter: brightness(50%);
   }
 
 
-  .dishes {
+  .home-menu__section {
     max-width: 1300px;
     width: 100%;
   }
 
 
 
-  .dish1:hover div.name {
+  .home-menu__category--main:hover .home-menu__name {
     font-size: 4rem;
   }
 
-  .dish2:hover .name,
-  .dish3:hover .name,
-  .dish4:hover .name,
-  .dish5:hover .name {
+  .home-menu__category--small:hover .home-menu__name {
     font-size: 2.5rem;
   }
 }
 
 
 @media screen and (min-width: 1300px) {
-  .dishes h2 {
+  .home-menu__section h2 {
     padding: 0;
   }
 

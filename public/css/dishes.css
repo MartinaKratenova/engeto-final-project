@@ -1,7 +1,7 @@
 @import "root.css";
 
 /*Hero*/
-.hero {
+.page-hero {
   min-height: 30vh;
 
   background-image:
@@ -19,13 +19,13 @@
 
 }
 
-.hero .hero-content {
+.page-hero__content {
   width: 80%;
   max-width: 1300px;
 
 }
 
-.hero h1 {
+.page-hero h1 {
   font-size: 6rem;
   margin-bottom: 20px;
 }
@@ -35,7 +35,7 @@
 Filter
 
 *********/
-.filterDiv {
+.dish-catalog__filter-container {
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -45,7 +45,7 @@ Filter
   margin: 0 auto;
 }
 
-.filter {
+.dish-catalog__filter-list {
   min-height: 44px;
 
   border: none;
@@ -62,7 +62,7 @@ Filter
 
 }
 
-.filter li {
+.dish-catalog__filter-item {
   text-decoration: none;
   flex-wrap: wrap;
   color: var(--primary-color);
@@ -76,9 +76,9 @@ Filter
   font-size: 1.2em;
 }
 
-.filter li:hover,
-.filter li:active,
-.filter li:focus {
+.dish-catalog__filter-item:hover,
+.dish-catalog__filter-item:active,
+.dish-catalog__filter-item:focus {
   color: var(--secondary-color);
   font-weight: bolder;
 
@@ -88,26 +88,21 @@ Filter
 
 
 
-.active {
+.dish-catalog__filter-item--active {
   color: var(--secondary-color);
   font-weight: bolder;
 }
-
-/* .hidden {
-  display: none;
-
-} */
 
 /******
 Dish card
 ******/
-.dishes {
+.dish-catalog__results {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   gap: 35px;
-  
+
   padding: 50px;
 }
 
@@ -125,7 +120,7 @@ Dish card
   text-align: center;
 }
 
-.price-info {
+.dish-card__price {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -133,7 +128,7 @@ Dish card
 
 }
 
-.title h3:after {
+.dish-card__title h3:after {
   content: "";
   display: block;
   width: 90%;
@@ -145,7 +140,7 @@ Dish card
 
 
 
-.title h3,
-.title div {
+.dish-card__title h3,
+.dish-card__title div {
   display: inline;
 }

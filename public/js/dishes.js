@@ -1,12 +1,10 @@
-const mealItems = document.querySelectorAll('.meal');
-
 const all = document.getElementById('all');
 
 const sectionDishes = document.getElementById('dishes');
 
 const dishesData = document.getElementById('dishes-data');
 
-const filterItems = document.querySelectorAll('.filterItem');
+const filterItems = document.querySelectorAll('.dish-catalog__filter-item');
 
 const dishItems = JSON.parse(dishesData.dataset.dishes);
 
@@ -50,7 +48,7 @@ const createMealCard = (name, price, category_id, description) => {
 
   //name
   const divTitle = document.createElement('div');
-  divTitle.classList.add("title");
+  divTitle.classList.add("dish-card__title");
 
   const nameTag = document.createElement('h3');
   nameTag.textContent = name;
@@ -60,7 +58,7 @@ const createMealCard = (name, price, category_id, description) => {
 
   // description
   const divText = document.createElement('div');
-  divText.classList.add("description");
+  divText.classList.add("dish-card__description");
 
   const descriptionTag = document.createElement('div');
   descriptionTag.textContent = description;
@@ -72,13 +70,15 @@ const createMealCard = (name, price, category_id, description) => {
   //price
 
   const divPrice = document.createElement('div');
-  divPrice.classList.add("price-info");
+  divPrice.classList.add("dish-card__price");
 
   const priceTextTag = document.createElement('div');
+  priceTextTag.classList.add("dish-card__price-label");
   priceTextTag.textContent = "Cena";
   divPrice.append(priceTextTag);
 
   const priceTag = document.createElement('div');
+  priceTag.classList.add("dish-card__price-value");
   priceTag.textContent = price;
   divPrice.append(priceTag);
 
@@ -112,8 +112,8 @@ const updateCategoryUrl = (categoryId) => {
 
 filterItems.forEach((filter) => {
   filter.addEventListener('click', () => {
-    filterItems.forEach((item) => item.classList.remove('active'));
-    filter.classList.add('active');
+    filterItems.forEach((item) => item.classList.remove('dish-catalog__filter-item--active'));
+    filter.classList.add('dish-catalog__filter-item--active');
     updateCategoryUrl(filter.id);
 
     if (filter.id === 'all') {
@@ -130,7 +130,7 @@ const selectedFilter = selectedCategory
   : all;
 
 if (selectedFilter) {
-  selectedFilter.classList.add('active');
+  selectedFilter.classList.add('dish-catalog__filter-item--active');
   renderCategory(selectedCategory);
 }
 

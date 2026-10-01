@@ -1,7 +1,7 @@
 @import "root.css";
 
 /*Hero*/
-.hero {
+.page-hero {
   min-height: 30vh;
 
   background-image:
@@ -21,13 +21,13 @@
 
 }
 
-.hero .hero-content {
+.page-hero__content {
   width: 80%;
   max-width: 1300px;
 
 }
 
-.hero h1 {
+.page-hero h1 {
   font-size: 4rem;
   margin-bottom: 0px;
 }
@@ -36,11 +36,11 @@
 Add new
 *****/
 
-.addNew {
+.admin-menu__add {
   margin: 10px auto;
 }
 
-.addNewBtn {
+.admin-menu__add-button {
 
   justify-content: center;
   font-family: var(--font);
@@ -52,7 +52,7 @@ Add new
 
 }
 
-.modal {
+.admin-modal {
   display: none;
   position: fixed;
   inset: 0;
@@ -66,11 +66,11 @@ Add new
 
 }
 
-.modal.isOpen {
+.admin-modal--open {
   display: flex;
 }
 
-.modalContent {
+.admin-modal__content {
   display: block;
   width: min(100%, 520px);
   max-width: min(100%, 520px);
@@ -84,18 +84,18 @@ textarea {
   resize: vertical;
 }
 
-.modalTop {
+.admin-modal__header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.modalTitle {
+.admin-modal__title {
   margin-bottom: 0;
   font-size: 1.4rem;
 }
 
-.closeModalCrossBtn {
+.admin-modal__close-button {
   border: 0;
   background: transparent;
   font-size: 2rem;
@@ -105,14 +105,14 @@ textarea {
 
 }
 
-.addDishForm {
+.admin-dish-form {
   display: grid;
   gap: 8px;
 }
 
-.addDishForm input,
-.addDishForm textarea,
-.addDishForm select {
+.admin-dish-form input,
+.admin-dish-form textarea,
+.admin-dish-form select {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 8px;
@@ -122,7 +122,7 @@ textarea {
 }
 
 
-.saveDish {
+.admin-dish-form__submit {
   margin-top: 8px;
   padding: 10px 20px;
   border: 1px solid rgb(206, 198, 177);
@@ -136,7 +136,7 @@ Delete modal
 
 
 
-.deleteModalActions {
+.admin-modal__actions {
   display: flex;
   justify-content: space-evenly;
   gap: 10px;
@@ -144,7 +144,7 @@ Delete modal
   margin-bottom: 30px;
 }
 
-.closeModalBtn {
+.admin-modal__action-button {
   padding: 10px 40px;
   border: 1px solid rgb(206, 198, 177);
   font: inherit;
@@ -152,7 +152,7 @@ Delete modal
   box-shadow: 4px 4px 8px rgb(204, 198, 183);
 }
 
-.form-message {
+.admin-dish-form__message {
   min-height: 1.4em;
   margin: 0;
   color: #9b2c2c;
@@ -164,13 +164,13 @@ Delete modal
 List
 *****/
 
-.list {
+.admin-menu__list {
   margin: 10px auto;
   width: 80vw;
   font-size: 1rem;
 }
 
-.desc {
+.admin-dish__details {
   display: flex;
   justify-content: left;
   /* flex: 1 1 1 1 160px; */
@@ -180,19 +180,19 @@ List
   align-items: center;
 }
 
-.desc .item {
+.admin-dish__field {
   justify-self: start;
   flex-basis: 90%;
 
 }
 
-.description {
+.admin-dish__field--description {
   flex-grow: 3;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-.card {
+.admin-dish {
   display: block;
   justify-content: center;
   gap: 15px;
@@ -203,18 +203,18 @@ List
   box-shadow: 4px 4px 8px rgb(204, 198, 183);
 }
 
-.item {
+.admin-dish__field {
   gap: 5px;
 
 }
 
-.text {
+.admin-dish__field--text {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.label {
+.admin-dish__label {
   font-weight: bold;
 }
 
@@ -223,7 +223,7 @@ List
 Ikonky
 *****/
 
-.icons {
+.admin-dish__actions {
   display: flex;
   flex-flow: row;
   align-content: center;
@@ -241,7 +241,7 @@ Ikonky
     'opsz' 24
 }
 
-.iconBtn {
+.admin-dish__icon-button {
   border: 0;
   background-color: transparent;
   padding: 10px;
@@ -251,12 +251,12 @@ Ikonky
 
 @media screen and (min-width: 1100px) {
 
-  .desc {
+  .admin-dish__details {
     align-items: flex-start;
 
   }
 
-  .desc .item {
+  .admin-dish__field {
     flex-basis: 18%;
 
   }
@@ -266,13 +266,14 @@ Ikonky
 
 
 @media screen and (max-width: 800px) {
-  .hero h1 {
+  .page-hero h1 {
     font-size: 3rem;
 
   }
 }
+
 @media screen and (max-width: 380px) {
-  .hero h1 {
+  .page-hero h1 {
     font-size: 2rem;
 
   }

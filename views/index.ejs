@@ -1,9 +1,9 @@
 <%- include ('./partials/header') %>
 
   <main>
-    <section class="hero" id="hero">
-      <div class="container">
-        <div class="hero-content">
+    <section class="page-hero" id="hero">
+      <div class="site-layout__container">
+        <div class="page-hero__content">
 
 
           <h1>Dobrou chuť</h1>
@@ -12,24 +12,27 @@
         </div>
       </div>
     </section>
-    <section class="our-dishes" id="our-dishes">
-      <div class="container">
-        <div class="dishes-content">
+    <section class="home-menu" id="our-dishes">
+      <div class="site-layout__container">
+        <div class="home-menu__content">
 
-          <div class="dishes" id="dishes">
+          <div class="home-menu__section" id="dishes">
 
             <h2>Naše nabídka</h2>
 
-            <p class="text">Vyberte si z nabídky předkrmů, polévek, hlavních chodů i dezertů. Najdete u nás klasická jídla i oblíbené italské speciality. V naší útulné restauraci, kde si můžete vychutnat dobré jídlo, příjemnou atmosféru a chvíli klidu. Připravujeme poctivá jídla z kvalitních surovin a každý den myslíme na to, aby vám u nás chutnalo.</p>
+            <p class="home-menu__description">Vyberte si z nabídky předkrmů, polévek, hlavních chodů i dezertů. Najdete
+              u nás klasická jídla i oblíbené italské speciality. V naší útulné restauraci, kde si můžete vychutnat
+              dobré jídlo, příjemnou atmosféru a chvíli klidu. Připravujeme poctivá jídla z kvalitních surovin a každý
+              den myslíme na to, aby vám u nás chutnalo.</p>
 
-            <div class="dishes-list">
+            <div class="home-menu__category-list">
 
               <!-- main course -->
-              <div class="dish main-course dish1">
-                <a href="/dishes?category=3">
-                  <img src="img/main-shrimp.jpg" alt="Hlavní jídla">
+              <div class="home-menu__category home-menu__category--main">
+                <a class="home-menu__category-link" href="/dishes?category=3">
+                  <img class="home-menu__image" src="img/main-shrimp.jpg" alt="Hlavní jídla">
 
-                  <div class="name">
+                  <div class="home-menu__name">
 
                     Hlavní jídla
 
@@ -37,11 +40,11 @@
                 </a>
               </div>
               <!-- smaller dishes  -->
-              <div class="small-dishes">
-                <div class="dish small dish2">
-                  <a href="/dishes?category=2">
-                    <img src="img/soup.jpg" alt="Polévky">
-                    <div class="name">
+              <div class="home-menu__secondary-list">
+                <div class="home-menu__category home-menu__category--small home-menu__category--soups">
+                  <a class="home-menu__category-link" href="/dishes?category=2">
+                    <img class="home-menu__image" src="img/soup.jpg" alt="Polévky">
+                    <div class="home-menu__name">
                       Polévky
                     </div>
 
@@ -49,10 +52,10 @@
                 </div>
 
 
-                <div class="dish small dish3">
-                  <a href="/dishes?category=1">
-                    <img src="img/starter.jpg" alt="Předkrmy">
-                    <div class="name">
+                <div class="home-menu__category home-menu__category--small home-menu__category--starters">
+                  <a class="home-menu__category-link" href="/dishes?category=1">
+                    <img class="home-menu__image" src="img/starter.jpg" alt="Předkrmy">
+                    <div class="home-menu__name">
                       Předkrmy
                     </div>
                   </a>
@@ -60,10 +63,10 @@
                 </div>
 
 
-                <div class="dish small dish4">
-                  <a href="/dishes?category=5">
-                    <img src="img/dessert.jpg" alt="Dezerty">
-                    <div class="name">
+                <div class="home-menu__category home-menu__category--small home-menu__category--desserts">
+                  <a class="home-menu__category-link" href="/dishes?category=5">
+                    <img class="home-menu__image" src="img/dessert.jpg" alt="Dezerty">
+                    <div class="home-menu__name">
                       Dezerty
                     </div>
                   </a>
@@ -72,10 +75,10 @@
 
 
 
-                <div class="dish small dish5">
-                  <a href="/dishes?category=4">
-                    <img src="img/shrimps.jpg" alt="Rizota a těstoviny">
-                    <div class="name">
+                <div class="home-menu__category home-menu__category--small home-menu__category--pasta">
+                  <a class="home-menu__category-link" href="/dishes?category=4">
+                    <img class="home-menu__image" src="img/shrimps.jpg" alt="Rizota a těstoviny">
+                    <div class="home-menu__name">
                       Rizota a těstoviny
                     </div>
                   </a>
