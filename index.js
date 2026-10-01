@@ -1,7 +1,8 @@
 import express from 'express';
-import pkg from 'pg';
 import 'dotenv/config';
+import bcrypt from 'bcrypt';
 
+import pkg from 'pg';
 const { Pool } = pkg;
 const pool = new Pool({
   host: process.env.DB_HOST,
@@ -42,6 +43,38 @@ app.get('/dishes', async (req, res, next) => {
 
 
 });
+
+app.get('/login', async (req, res, next) => {
+  res.render('login', {
+    cssName: '/css/login.css',
+    jsName: '/js/login.js'
+  });
+
+});
+
+app.post('/login', async (req, res, next) => {
+  const { email, password } = req.body;
+
+  const result = await pool.query('SELECT * FROM admins WHERE email = $1', [email]);
+
+  if (result.rows.length > 0) {
+    console.log('Uživatel nalezen:', result.rows[0]);
+    const comparePassword = await bcrypt.compare(password, result.rows[0].password);
+
+    if (comparePassword) {
+      res.redirect('/admin');
+
+    } else {
+      return res.send('Zadali jste neplatné přihlašovací údaje');}
+
+    } else {
+
+      return res.send('Zadali jste neplatné přihlašovací údaje');
+    }
+
+
+  });
+
 
 app.get('/admin', async (req, res, next) => {
 

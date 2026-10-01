@@ -1,0 +1,28 @@
+.page-hero {
+  min-height: 30vh;
+
+  background-image:
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)),
+    var(--bg-img);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--bg-color);
+
+  background-attachment: fixed;
+  padding: 50px 15px;
+  background-position: center;
+
+}
+
+.page-hero__content {
+  width: 80%;
+  max-width: 1300px;
+
+}
+
+.page-hero h1 {
+  font-size: 6rem;
+  margin-bottom: 20px;
+}
