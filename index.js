@@ -27,6 +27,18 @@ app.use(session({
 }
 ));
 
+
+const checkAuth = (req, res, next) => {
+
+  if (req.session && req.session.user) {
+    return next();
+
+  } else {
+    return res.redirect('/login');
+
+  }
+};
+
 /*    Main page   */
 
 app.get('/', (req, res, next) => {
@@ -96,7 +108,7 @@ app.post('/login', async (req, res, next) => {
 /*    Administration   */
 
 
-app.get('/admin', async (req, res, next) => {
+app.get('/admin', checkAuth, async (req, res, next) => {
 
   const result = await pool.query('SELECT m.id, m.name, m.description, m.price, c.id AS category_id, c.name AS category FROM menu_items AS m LEFT JOIN categories AS c ON c.id = m.category_id');
   const categories = await pool.query('SELECT id, name FROM categories ORDER BY id');
@@ -114,7 +126,7 @@ app.get('/admin', async (req, res, next) => {
 
 
 
-app.post('/addDish', async (req, res, next) => {
+app.post('/addDish', checkAuth, async (req, res, next) => {
   const name = req.body.name.trim();
   const description = req.body.description.trim();
   const price = Number(req.body.price.trim());
@@ -137,7 +149,7 @@ app.post('/addDish', async (req, res, next) => {
 });
 
 
-app.post('/admin/:id/delete', async (req, res, next) => {
+app.post('/admin/:id/delete', checkAuth, async (req, res, next) => {
 
   try {
 
@@ -156,7 +168,7 @@ app.post('/admin/:id/delete', async (req, res, next) => {
 });
 
 
-app.post('/admin/:id/update', async (req, res, next) => {
+app.post('/admin/:id/update', checkAuth, async (req, res, next) => {
 
   const id = Number(req.params.id);
   const result = await pool.query(
