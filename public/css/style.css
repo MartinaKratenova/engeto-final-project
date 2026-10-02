@@ -54,6 +54,13 @@ h3 {
 
 }
 
+.list__empty-message
+{
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-top: 20px;
+}
 /*Header*/
 .site-header {
   width: 100%;

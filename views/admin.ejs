@@ -67,6 +67,8 @@
                     <%= category.name %>
                   </option>
                   <% }) %>
+
+
               </select>
 
 
@@ -151,65 +153,74 @@
 
         <!-- List of dishes cards -->
 
-        <% dishes.forEach(d=> { %>
+        <% if (dishes && dishes.length> 0) { %>
 
-          <div class="admin-dish">
-            <div class="admin-dish__details">
-              <div class="admin-dish__field admin-dish__field--text">
-                <label for="title" class="admin-dish__label">Nazev</label>
-                <div class="admin-dish__value admin-dish__value--title">
-                  <%=d.name%>
+          <% dishes.forEach(d=> { %>
+
+            <div class="admin-dish">
+              <div class="admin-dish__details">
+                <div class="admin-dish__field admin-dish__field--text">
+                  <label for="title" class="admin-dish__label">Nazev</label>
+                  <div class="admin-dish__value admin-dish__value--title">
+                    <%=d.name%>
+                  </div>
                 </div>
-              </div>
 
-              <div class="admin-dish__field admin-dish__field--text admin-dish__field--description">
-                <label for="description" class="admin-dish__label">Popis</label>
-                <div class="admin-dish__value admin-dish__value--description">
-                  <%=d.description%>
+                <div class="admin-dish__field admin-dish__field--text admin-dish__field--description">
+                  <label for="description" class="admin-dish__label">Popis</label>
+                  <div class="admin-dish__value admin-dish__value--description">
+                    <%=d.description%>
+                  </div>
                 </div>
-              </div>
 
-              <div class="admin-dish__field admin-dish__field--text">
-                <label for="price" class="admin-dish__label">Cena</label>
-                <div class="admin-dish__value">
-                  <%=d.price%>
+                <div class="admin-dish__field admin-dish__field--text">
+                  <label for="price" class="admin-dish__label">Cena</label>
+                  <div class="admin-dish__value">
+                    <%=d.price%>
+                  </div>
                 </div>
-              </div>
 
-              <div class="admin-dish__field admin-dish__field--text">
-                <label for="category" class="admin-dish__label">Kategorie</label>
-                <div class="admin-dish__value">
-                  <%=d.category%>
+                <div class="admin-dish__field admin-dish__field--text">
+                  <label for="category" class="admin-dish__label">Kategorie</label>
+                  <div class="admin-dish__value">
+                    <%=d.category%>
+                  </div>
                 </div>
-              </div>
 
-              <div class="admin-dish__actions">
-                <button class="admin-dish__icon-button admin-dish__edit-button" type="button" data-id="<%= d.id %>"
-                  data-name="<%= d.name %>" data-description="<%= d.description %>" data-price="<%= d.price %>"
-                  data-category-id="<%= d.category_id %>">
-                  <span class="material-icons">
-                    edit
-                  </span>
-                </button>
-
-                <form action="/admin/<%= d.id %>/delete" method="post">
-                  <button class="admin-dish__icon-button admin-dish__delete-button" type="submit">
+                <div class="admin-dish__actions">
+                  <button class="admin-dish__icon-button admin-dish__edit-button" type="button" data-id="<%= d.id %>"
+                    data-name="<%= d.name %>" data-description="<%= d.description %>" data-price="<%= d.price %>"
+                    data-category-id="<%= d.category_id %>">
                     <span class="material-icons">
-                      delete
+                      edit
                     </span>
                   </button>
-                </form>
+
+                  <form action="/admin/<%= d.id %>/delete" method="post">
+                    <button class="admin-dish__icon-button admin-dish__delete-button" type="submit">
+                      <span class="material-icons">
+                        delete
+                      </span>
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
 
 
 
 
 
-          <% }) %>
 
 
+
+            <% }) %>
+
+              <% } else { %>
+
+                <p class="list__empty-message">Zatím je naše menu prázdné</p>
+
+                <% } %>
 
     </section>
 

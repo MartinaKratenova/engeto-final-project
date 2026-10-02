@@ -62,7 +62,7 @@ app.get('/dishes', async (req, res, next) => {
 
   const userEmail = req.session.user?.email || null;
   const result = await pool.query('SELECT * FROM menu_items');
-
+console.log(result.rows);
   res.render('dishes', {
     cssName: '/css/dishes.css',
     jsName: '/js/dishes.js',

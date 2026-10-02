@@ -32,8 +32,17 @@
 
     <section class="dish-catalog__results" id="dishes">
 
+     <% if (dishes && dishes.length > 0) { %>
+      
       <div id="dishes-data" data-dishes="<%= JSON.stringify(dishes) %>">
       </div>
+
+      <% } else { %>
+       
+        <p class="list__empty-message">Zatím je naše menu prázdné</p>
+
+     <% } %>
+      
 
 
 
