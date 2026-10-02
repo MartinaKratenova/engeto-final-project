@@ -35,7 +35,7 @@ img {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.4rem;
   margin-bottom: 20px;
 }
 
@@ -63,12 +63,17 @@ h3 {
   padding: 15px;
 }
 
+.logged-in-info__email {
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  margin-right: 10px;
+  justify-self: right;
+}
+
 .site-header__items {
   display: flex;
   flex-direction: row;
 
-  /* justify-content: space-between;
-  align-items: center; */
 }
 
 .site-header__desktop-menu {
@@ -126,7 +131,7 @@ h3 {
 
 }
 
-/* Position the content inside the overlay */
+
 .site-header__overlay-content {
   position: relative;
   top: 25%;
@@ -188,20 +193,16 @@ h3 {
 
 }
 
-
-
-@media screen and (max-height: 479px) {
-  .site-header__overlay-link {
-    font-size: 20px
-  }
-
-  .site-header__overlay .site-header__close-button {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-
-  }
+.site-header__logout-button {
+  border: 0;
+  background: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+ 
+  color: var(--primary-color);
 }
+
+
 
 
 /*Footer*/
@@ -216,7 +217,25 @@ h3 {
   margin-top: auto;
 }
 
-@media screen and (min-width: 480px) {
+
+
+
+
+@media screen and (max-height: 479px) {
+  .site-header__overlay-link {
+    font-size: 2rem;
+  }
+
+  .site-header__overlay .site-header__close-button {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+
+  }
+}
+
+
+@media screen and (min-width: 600px) {
 
 
   .site-header__menu-icon {
@@ -227,10 +246,16 @@ h3 {
     display: block;
   }
 
-   .page-hero h1 {
-  font-size: 4rem;
-  margin-bottom: 20px;
+  .page-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
+
+  .logged-in-info__email {
+  font-size: 1.1rem;
+ 
 }
+
 }
 
 @media screen and (min-width: 860px) {
@@ -240,10 +265,7 @@ h3 {
   }
 
   .page-hero h1 {
-  font-size: 6rem;
-  margin-bottom: 20px;
+    font-size: 6rem;
+    margin-bottom: 20px;
+  }
 }
-}
-
-
-

@@ -13,7 +13,7 @@
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
 
 
   <title>Web dev project</title>
@@ -28,6 +28,25 @@
 <body class="site-layout">
   <header class="site-header">
     <div class="site-layout__container">
+
+      <div class="logged-in-info">
+
+        <% if (userEmail) { %>
+
+          <p class="logged-in-info__email">Přihlášen jako: <%= userEmail %>
+          </p>
+
+          <% } else { %>
+
+            <p class="hidden"></p>
+
+            <% } %>
+
+
+      </div>
+
+
+
       <div class="site-header__items">
         <div class="site-header__desktop-menu">
           <div class="site-header__logo">
@@ -41,9 +60,21 @@
               <li><a class="site-header__menu-link" href="/dishes">Nabídka</a> </li>
               <li><a class="site-header__menu-link" href="/admin">Administrace</a> </li>
 
-            </ul>
+              <button class="site-header__logout-button" id="logoutBtn" type="button" aria-label="Odhlásit">
+
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+
+              </button>
+
+
+
+          </ul>
           </nav>
         </div>
+
+
+
+
         <!-- The overlay -->
         <div id="myNav" class="site-header__overlay">
 
@@ -55,9 +86,16 @@
             <a class="site-header__overlay-link" href="/dishes">Nabídka</a>
             <a class="site-header__overlay-link" href="/admin">Administrace</a>
 
+            
+
+              <a class="site-header__overlay-link" href="/logout">Odhlásit</a>
+
+            
+
           </div>
 
         </div>
+
         <button class="site-header__open-button" id="openNavBtn" type="button" aria-label="Otevřít">
 
           <i class="fa fa-bars site-header__menu-icon"></i>
@@ -65,7 +103,9 @@
         </button>
 
 
+
       </div>
+
     </div>
 
 

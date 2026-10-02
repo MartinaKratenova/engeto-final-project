@@ -28,6 +28,7 @@ app.use(session({
 ));
 
 
+
 const checkAuth = (req, res, next) => {
 
   if (req.session && req.session.user) {
@@ -42,24 +43,31 @@ const checkAuth = (req, res, next) => {
 /*    Main page   */
 
 app.get('/', (req, res, next) => {
+
+  const userEmail = req.session.user?.email || null;
+
   res.render('index', {
     cssName: '/css/index.css',
-    jsName: '/js/main.js'
+    jsName: '/js/main.js',
+    userEmail: userEmail
   });
 
-});
+
+}
+);
 
 /*    Dishes / Nabidka   */
 
 app.get('/dishes', async (req, res, next) => {
 
+  const userEmail = req.session.user?.email || null;
   const result = await pool.query('SELECT * FROM menu_items');
 
   res.render('dishes', {
     cssName: '/css/dishes.css',
     jsName: '/js/dishes.js',
+    userEmail: userEmail,
     dishes: result.rows
-
   });
 
 
@@ -68,16 +76,19 @@ app.get('/dishes', async (req, res, next) => {
 /*    Login    */
 
 app.get('/login', async (req, res, next) => {
-  res.render('login', {
+  const userEmail = req.session.user?.email || null;
+
+    res.render('login', {
     cssName: '/css/login.css',
-    jsName: '/js/login.js'
+    jsName: '/js/login.js',
+    userEmail: userEmail
   });
 
 });
 
 app.post('/login', async (req, res, next) => {
   const { email, password } = req.body;
-
+  
   const result = await pool.query('SELECT * FROM admins WHERE email = $1', [email]);
 
   if (result.rows.length > 0) {
@@ -109,6 +120,7 @@ app.post('/login', async (req, res, next) => {
 
 
 app.get('/admin', checkAuth, async (req, res, next) => {
+  const userEmail = req.session.user?.email || null;
 
   const result = await pool.query('SELECT m.id, m.name, m.description, m.price, c.id AS category_id, c.name AS category FROM menu_items AS m LEFT JOIN categories AS c ON c.id = m.category_id');
   const categories = await pool.query('SELECT id, name FROM categories ORDER BY id');
@@ -117,7 +129,8 @@ app.get('/admin', checkAuth, async (req, res, next) => {
     cssName: '/css/admin.css',
     jsName: '/js/admin.js',
     dishes: result.rows,
-    categories: categories.rows
+    categories: categories.rows,
+    userEmail: userEmail
 
   });
 
@@ -209,7 +222,12 @@ app.post('/admin/:id/update', checkAuth, async (req, res, next) => {
   }
 });
 
+app.get('/logout', (req, res) => {
+  req.session.destroy(() => {
+    res.redirect('/');
+  });
 
+});
 
 
 app.listen(port, () => {
