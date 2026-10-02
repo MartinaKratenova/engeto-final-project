@@ -62,3 +62,10 @@
   margin: 20px 0;
 
 }
+
+
+
+.label{
+  color: var(--terciary-color);
+  font-size: var(--basic-font-size);
+}

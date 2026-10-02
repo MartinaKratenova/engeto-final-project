@@ -27,10 +27,6 @@
 
 }
 
-.page-hero h1 {
-  font-size: 4rem;
-  margin-bottom: 0px;
-}
 
 /*****
 Add new
@@ -263,18 +259,3 @@ Ikonky
 
 }
 
-
-
-@media screen and (max-width: 800px) {
-  .page-hero h1 {
-    font-size: 3rem;
-
-  }
-}
-
-@media screen and (max-width: 380px) {
-  .page-hero h1 {
-    font-size: 2rem;
-
-  }
-}

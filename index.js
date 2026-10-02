@@ -204,4 +204,4 @@ app.listen(port, () => {
   console.log(`Server běží na adrese: http://localhost:${port}`);
 });
 
-//jsem na 12.6 - další budou změny kvůli přihlášení
+

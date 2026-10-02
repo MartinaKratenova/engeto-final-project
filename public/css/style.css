@@ -35,7 +35,7 @@ img {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 
@@ -226,6 +226,11 @@ h3 {
   .site-header__menu {
     display: block;
   }
+
+   .page-hero h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
 }
 
 @media screen and (min-width: 860px) {
@@ -233,4 +238,12 @@ h3 {
     width: 100px;
     height: 100px;
   }
+
+  .page-hero h1 {
+  font-size: 6rem;
+  margin-bottom: 20px;
 }
+}
+
+
+
