@@ -84,13 +84,13 @@ h3 {
 }
 
 .site-header__desktop-menu {
-  
+
   display: flex;
   flex-direction: row;
 
   justify-content: space-between;
   align-items: center;
-  
+
 }
 
 .site-header__logo img {
@@ -126,11 +126,14 @@ h3 {
 .site-header__wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: end;
   width: 100%;
 }
 
+.site-header__wrapper:not(:has(.logged-in-info__email)) {
+  justify-content: center;
+}
 
 
 /* The Overlay */
@@ -207,13 +210,13 @@ h3 {
   padding: 5px;
   color: var(--primary-color);
   justify-self: center;
- 
+
   display: inline-block;
 }
 
 .site-header__menu-icon {
   display: block;
-  
+
 
 }
 
@@ -268,7 +271,7 @@ h3 {
 
   .site-header__menu {
     display: block;
-    
+
   }
 
   .page-hero h1 {
