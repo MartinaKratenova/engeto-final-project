@@ -29,72 +29,82 @@
   <header class="site-header">
     <div class="site-layout__container">
 
-      <div class="logged-in-info">
 
-        <% if (userEmail) { %>
-
-          <p class="logged-in-info__email">Přihlášen jako: <%= userEmail %>
-          </p>
-
-          <% } else { %>
-
-            <p class="hidden"></p>
-
-            <% } %>
-
-
-      </div>
 
 
 
       <div class="site-header__items">
-        <div class="site-header__desktop-menu">
-          <div class="site-header__logo">
-            <a href="/">
-              <img src="img/logo-nobg.png" alt="Logo">
-            </a>
-          </div>
-          <nav class="site-header__menu">
-            <ul class="site-header__menu-list">
-              <li><a class="site-header__menu-link" href="/">Domů</a> </li>
-              <li><a class="site-header__menu-link" href="/dishes">Nabídka</a> </li>
-              <li><a class="site-header__menu-link" href="/admin">Administrace</a> </li>
-
-              <button class="site-header__logout-button" id="logoutBtn" type="button" aria-label="Odhlásit">
-
-                <i class="fa-solid fa-arrow-right-to-bracket"></i>
-
-              </button>
-
-
-
-          </ul>
-          </nav>
+        <div class="site-header__logo">
+          <a href="/">
+            <img src="img/logo-nobg.png" alt="Logo">
+          </a>
         </div>
 
+        <div class="site-header__wrapper">
+          <div class="logged-in-info">
+
+            <% if (userEmail) { %>
+
+              <p class="logged-in-info__email">Přihlášen jako: <%= userEmail %>
+              </p>
+
+              <% } else { %>
+
+                <p class="hidden"></p>
+
+                <% } %>
+
+
+          </div>
+          <div class="site-header__desktop-menu">
 
 
 
-        <!-- The overlay -->
-        <div id="myNav" class="site-header__overlay">
+            <nav class="site-header__menu">
+              <ul class="site-header__menu-list">
+                <li><a class="site-header__menu-link" href="/">Domů</a> </li>
+                <li><a class="site-header__menu-link" href="/dishes">Nabídka</a> </li>
+                <li><a class="site-header__menu-link" href="/admin">Administrace</a> </li>
 
-          <button class="site-header__close-button" id="closeNavBtn" type="button" aria-label="Zavřít">&times;</button>
+                <button class="site-header__logout-button" id="logoutBtn" type="button" aria-label="Odhlásit">
 
-          <div class="site-header__overlay-content">
+                  <i class="fa-solid fa-arrow-right-to-bracket"></i>
 
-            <a class="site-header__overlay-link" href="/">Domů</a>
-            <a class="site-header__overlay-link" href="/dishes">Nabídka</a>
-            <a class="site-header__overlay-link" href="/admin">Administrace</a>
+                </button>
 
-            
+
+
+              </ul>
+            </nav>
+          </div>
+
+
+
+
+
+          <!-- The overlay -->
+          <div id="myNav" class="site-header__overlay">
+
+            <button class="site-header__close-button" id="closeNavBtn" type="button"
+              aria-label="Zavřít">&times;</button>
+
+            <div class="site-header__overlay-content">
+
+              <a class="site-header__overlay-link" href="/">Domů</a>
+              <a class="site-header__overlay-link" href="/dishes">Nabídka</a>
+              <a class="site-header__overlay-link" href="/admin">Administrace</a>
+
+
 
               <a class="site-header__overlay-link" href="/logout">Odhlásit</a>
 
-            
+
+
+            </div>
 
           </div>
 
-        </div>
+        
 
         <button class="site-header__open-button" id="openNavBtn" type="button" aria-label="Otevřít">
 
@@ -103,7 +113,7 @@
         </button>
 
 
-
+</div>
       </div>
 
     </div>

@@ -54,13 +54,13 @@ h3 {
 
 }
 
-.list__empty-message
-{
+.list__empty-message {
   font-size: 1.2rem;
   color: var(--primary-color);
   text-align: center;
   margin-top: 20px;
 }
+
 /*Header*/
 .site-header {
   width: 100%;
@@ -80,16 +80,17 @@ h3 {
 .site-header__items {
   display: flex;
   flex-direction: row;
-
+  justify-content: space-between;
 }
 
 .site-header__desktop-menu {
-  width: 100%;
+  
   display: flex;
   flex-direction: row;
 
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .site-header__logo img {
@@ -102,6 +103,7 @@ h3 {
   flex-direction: row;
   gap: 30px;
   align-items: center;
+  justify-items: flex-end;
   list-style-type: none;
 }
 
@@ -118,7 +120,18 @@ h3 {
 
 .site-header__menu {
   display: none;
+  height: 0;
 }
+
+.site-header__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  width: 100%;
+}
+
+
 
 /* The Overlay */
 .site-header__overlay {
@@ -193,10 +206,14 @@ h3 {
   cursor: pointer;
   padding: 5px;
   color: var(--primary-color);
+  justify-self: center;
+ 
+  display: inline-block;
 }
 
 .site-header__menu-icon {
   display: block;
+  
 
 }
 
@@ -205,10 +222,9 @@ h3 {
   background: transparent;
   font-size: 1rem;
   cursor: pointer;
- 
+
   color: var(--primary-color);
 }
-
 
 
 
@@ -247,10 +263,12 @@ h3 {
 
   .site-header__menu-icon {
     display: none;
+    height: 0;
   }
 
   .site-header__menu {
     display: block;
+    
   }
 
   .page-hero h1 {
@@ -259,9 +277,9 @@ h3 {
   }
 
   .logged-in-info__email {
-  font-size: 1.1rem;
- 
-}
+    font-size: 1.1rem;
+
+  }
 
 }
 
