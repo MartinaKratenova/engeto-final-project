@@ -184,8 +184,12 @@ List
 
 .admin-dish__field--description {
   flex-grow: 3;
-  text-overflow: ellipsis;
+
+}
+.ellipsis{
+  
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .admin-dish {

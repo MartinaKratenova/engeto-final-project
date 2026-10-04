@@ -48,13 +48,13 @@
               <p class="admin-dish-form__message" aria-live="polite"></p>
 
               <label for="addDishName">Název</label>
-              <input id="addDishName" name="name" type="text" required>
+              <input id="addDishName" name="name" type="text" maxlength="150" required>
 
               <label for="addDishDescription">Popis</label>
-              <textarea id="addDishDescription" name="description" rows="4" required></textarea>
+              <textarea id="addDishDescription" name="description" rows="4" maxlength="500" required></textarea>
 
               <label for="addDishPrice">Cena</label>
-              <input id="addDishPrice" name="price" type="number" min="0" step="0.01" required>
+              <input id="addDishPrice" name="price" type="number" min="0" max="999999.99" step="0.01" required>
 
               <label for="addDishCategory">Kategorie</label>
               <select id="addDishCategory" name="category_id" required>
@@ -95,13 +95,13 @@
               <p class="admin-dish-form__message" aria-live="polite"></p>
 
               <label for="editDishName">Název</label>
-              <input id="editDishName" name="name" type="text" required>
+              <input id="editDishName" name="name" type="text" maxlength="150" required>
 
               <label for="editDishDescription">Popis</label>
-              <textarea id="editDishDescription" name="description" rows="4" required></textarea>
+              <textarea id="editDishDescription" name="description" rows="4" maxlength="500" required></textarea>
 
               <label for="editDishPrice">Cena</label>
-              <input id="editDishPrice" name="price" type="number" min="0" step="0.01" required>
+              <input id="editDishPrice" name="price" type="number" min="0" max="999999.99" step="0.01" required>
 
               <label for="editDishCategory">Kategorie</label>
               <select id="editDishCategory" name="category_id" required>
@@ -161,28 +161,28 @@
               <div class="admin-dish__details">
                 <div class="admin-dish__field admin-dish__field--text">
                   <label for="title" class="admin-dish__label">Nazev</label>
-                  <div class="admin-dish__value admin-dish__value--title">
+                  <div class="admin-dish__value admin-dish__value--title ellipsis">
                     <%=d.name%>
                   </div>
                 </div>
 
                 <div class="admin-dish__field admin-dish__field--text admin-dish__field--description">
                   <label for="description" class="admin-dish__label">Popis</label>
-                  <div class="admin-dish__value admin-dish__value--description">
+                  <div class="admin-dish__value admin-dish__value--description ellipsis">
                     <%=d.description%>
                   </div>
                 </div>
 
                 <div class="admin-dish__field admin-dish__field--text">
                   <label for="price" class="admin-dish__label">Cena</label>
-                  <div class="admin-dish__value">
+                  <div class="admin-dish__value ellipsis">
                     <%=d.price%>
                   </div>
                 </div>
 
                 <div class="admin-dish__field admin-dish__field--text">
                   <label for="category" class="admin-dish__label">Kategorie</label>
-                  <div class="admin-dish__value">
+                  <div class="admin-dish__value ellipsis">
                     <%=d.category%>
                   </div>
                 </div>
