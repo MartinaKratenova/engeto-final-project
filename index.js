@@ -5,15 +5,7 @@ import session from 'express-session';
 
 import pg from 'pg';
 
-// const { Pool } = pkg;
-// const pool = new Pool({
-//   host: process.env.DB_HOST,
-//   database: process.env.DB_NAME,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASSWORD,
-//   port: process.env.DB_PORT
-// });
-
+/*    Database connection   */
 const pool = new pg.Pool({ 
   connectionString: process.env.DATABASE_URL, 
   ssl: { 
@@ -232,6 +224,8 @@ app.post('/admin/:id/update', checkAuth, async (req, res, next) => {
     next(err);
   }
 });
+
+/*    Logout   */
 
 app.get('/logout', (req, res) => {
   req.session.destroy(() => {
