@@ -62,7 +62,9 @@ app.get('/', (req, res, next) => {
 /*    Dishes / Nabidka   */
 
 app.get('/dishes', async (req, res, next) => {
+  // simulace chyby --> zobrazeni error stranky 
   // throw new Error('Test database failure');
+
 
   const userEmail = req.session.user?.email || null;
   const result = await pool.query('SELECT * FROM menu_items');

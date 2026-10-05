@@ -61,6 +61,43 @@ h3 {
   margin-top: 20px;
 }
 
+
+.pg-button {
+  justify-content: center;
+  font-family: var(--font);
+  font-size: var(--basic-font-size);
+  border: 1px solid rgb(206, 198, 177);
+  width: 100%;
+  box-shadow: 4px 4px 8px rgb(204, 198, 183);
+  background-color: var(--btn-bg-light);
+  padding: 10px 20px;
+  margin-top: 20px;
+  transition: var(--transition);
+}
+
+.pg-button:hover {
+  background-color: var(--btn-bg-dark);
+  cursor: pointer;
+}
+
+.modal-button {
+  justify-content: center;
+  font-family: var(--font);
+  font-size: var(--basic-font-size);
+  border: 1px solid rgb(206, 198, 177);
+  box-shadow: 4px 4px 8px rgb(204, 198, 183);
+  background-color: var(--btn-bg-light);
+  padding: 10px 20px;
+  margin-top: 10px;
+  transition: var(--transition);
+  
+}
+
+.modal-button:hover {
+  background-color: var(--btn-bg-dark);
+  cursor: pointer;
+}
+
 /*Header*/
 .site-header {
   width: 100%;

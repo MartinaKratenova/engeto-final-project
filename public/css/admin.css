@@ -36,17 +36,6 @@ Add new
   margin: 10px auto;
 }
 
-.admin-menu__add-button {
-
-  justify-content: center;
-  font-family: var(--font);
-  font-size: var(--basic-font-size);
-  border: 1px solid rgb(206, 198, 177);
-  padding: 10px 20px;
-  width: 100%;
-  box-shadow: 4px 4px 8px rgb(204, 198, 183);
-
-}
 
 .admin-modal {
   display: none;
@@ -57,7 +46,7 @@ Add new
   justify-content: center;
   padding: 20px;
   background: rgba(0, 0, 0, 0.70);
-  transition: 3s;
+  transition: var(--transition);
   border: 1px solid rgb(206, 198, 177);
 
 }
@@ -118,13 +107,7 @@ textarea {
 }
 
 
-.admin-dish-form__submit {
-  margin-top: 8px;
-  padding: 10px 20px;
-  border: 1px solid rgb(206, 198, 177);
-  font: inherit;
-  cursor: pointer;
-}
+
 
 /****
 Delete modal
@@ -142,10 +125,8 @@ Delete modal
 
 .admin-modal__action-button {
   padding: 10px 40px;
-  border: 1px solid rgb(206, 198, 177);
-  font: inherit;
-  cursor: pointer;
-  box-shadow: 4px 4px 8px rgb(204, 198, 183);
+
+  transition: var(--transition);
 }
 
 .admin-dish-form__message {
@@ -186,8 +167,9 @@ List
   flex-grow: 3;
 
 }
-.ellipsis{
-  
+
+.ellipsis {
+
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -246,6 +228,8 @@ Ikonky
   background-color: transparent;
   padding: 10px;
   width: 50px;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
 
@@ -262,4 +246,3 @@ Ikonky
   }
 
 }
-
