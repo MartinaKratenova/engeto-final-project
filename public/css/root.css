@@ -10,4 +10,5 @@
   --bg-img: url("../img/risotto-pasta.png");
   --font: "Poppins", sans-serif;
   --basic-font-size: 1.2rem;
+  --error-color: #5e0e0e;
 }

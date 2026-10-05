@@ -1,5 +1,10 @@
 @import "root.css";
 
+.login-form__error {
+  color: var(--error-color);
+  margin-top: 0;
+}
+
 
 .page-hero {
   min-height: 30vh;

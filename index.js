@@ -62,6 +62,7 @@ app.get('/', (req, res, next) => {
 /*    Dishes / Nabidka   */
 
 app.get('/dishes', async (req, res, next) => {
+  // throw new Error('Test database failure');
 
   const userEmail = req.session.user?.email || null;
   const result = await pool.query('SELECT * FROM menu_items');
@@ -84,7 +85,8 @@ app.get('/login', async (req, res, next) => {
   res.render('login', {
     cssName: '/css/login.css',
     jsName: '/js/login.js',
-    userEmail: userEmail
+    userEmail: userEmail,
+    errorMessage: null
   });
 
 });
@@ -104,17 +106,16 @@ app.post('/login', async (req, res, next) => {
         email: result.rows[0].email
       };
 
-      res.redirect('/admin');
-
-    } else {
-      return res.send('Zadali jste neplatné přihlašovací údaje');
+      return res.redirect('/admin');
     }
-
-  } else {
-
-    return res.send('Zadali jste neplatné přihlašovací údaje');
   }
 
+  return res.status(401).render('login', {
+    cssName: '/css/login.css',
+    jsName: '/js/login.js',
+    userEmail: req.session.user?.email || null,
+    errorMessage: 'Zadali jste neplatné přihlašovací údaje'
+  });
 
 });
 
@@ -240,6 +241,14 @@ app.get('/logout', (req, res, next) => {
 
 
 app.get('/error', (req, res) => {
+  const requestedStatus = Number(req.query.status);
+  const statusCode =
+    Number.isInteger(requestedStatus) &&
+      requestedStatus >= 400 &&
+      requestedStatus <= 599
+      ? requestedStatus
+      : 500;
+
   return res.status(statusCode).render('error', {
     cssName: '/css/error.css',
     jsName: '/js/error.js',
