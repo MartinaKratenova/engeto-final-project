@@ -6,11 +6,11 @@ import session from 'express-session';
 import pg from 'pg';
 
 /*    Database connection   */
-const pool = new pg.Pool({ 
-  connectionString: process.env.DATABASE_URL, 
-  ssl: { 
-    rejectUnauthorized: false 
-  } 
+const pool = new pg.Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 
 });
 
@@ -65,7 +65,7 @@ app.get('/dishes', async (req, res, next) => {
 
   const userEmail = req.session.user?.email || null;
   const result = await pool.query('SELECT * FROM menu_items');
-console.log(result.rows);
+  console.log(result.rows);
   res.render('dishes', {
     cssName: '/css/dishes.css',
     jsName: '/js/dishes.js',
@@ -81,7 +81,7 @@ console.log(result.rows);
 app.get('/login', async (req, res, next) => {
   const userEmail = req.session.user?.email || null;
 
-    res.render('login', {
+  res.render('login', {
     cssName: '/css/login.css',
     jsName: '/js/login.js',
     userEmail: userEmail
@@ -91,7 +91,7 @@ app.get('/login', async (req, res, next) => {
 
 app.post('/login', async (req, res, next) => {
   const { email, password } = req.body;
-  
+
   const result = await pool.query('SELECT * FROM admins WHERE email = $1', [email]);
 
   if (result.rows.length > 0) {
@@ -205,7 +205,8 @@ app.post('/admin/:id/update', checkAuth, async (req, res, next) => {
         jsName: '/js/admin.js',
         dishes: result.rows,
         categories: categories.rows,
-        errorMessage: 'Vyplňte všechna policka.'
+        errorMessage: 'Vyplňte všechna políčka.',
+        userEmail: req.session.user?.email || null
       });
     }
 
@@ -227,13 +228,38 @@ app.post('/admin/:id/update', checkAuth, async (req, res, next) => {
 
 /*    Logout   */
 
-app.get('/logout', (req, res) => {
-  req.session.destroy(() => {
+app.get('/logout', (req, res, next) => {
+  req.session.destroy((err) => {
+    if (err) return next(err);
     res.redirect('/');
   });
 
 });
 
+
+
+
+app.get('/error', (req, res) => {
+  return res.status(statusCode).render('error', {
+    cssName: '/css/error.css',
+    jsName: '/js/error.js',
+    userEmail: req.session?.user?.email || null
+
+  });
+});
+
+app.use((err, req, res, next) => {
+  if (res.headersSent) return next(err);
+
+  console.error('Application error:', err);
+  const errorStatus = err.status || err.statusCode;
+  const statusCode = Number.isInteger(errorStatus) && errorStatus >= 400 && errorStatus <= 599
+    ? errorStatus
+    : 500;
+  res.redirect(`/error?status=${statusCode}`);
+
+
+});
 
 app.listen(port, () => {
   console.log(`Server běží na adrese: http://localhost:${port}`);
