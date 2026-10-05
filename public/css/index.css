@@ -140,6 +140,7 @@
 .home-menu__category:hover .home-menu__image {
   transform: scale(1.1);
   overflow: hidden;
+  filter: brightness(100%);
 }
 
 .home-menu__category--main:hover .home-menu__name {
