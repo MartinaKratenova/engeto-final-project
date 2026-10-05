@@ -41,6 +41,13 @@ select {
   font: inherit;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  font-family: "Poppins", sans-serif;
+}
+
 h1 {
   font-size: 2.4rem;
   margin-bottom: 20px;
