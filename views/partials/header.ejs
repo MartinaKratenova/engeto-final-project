@@ -26,6 +26,9 @@
 </head>
 
 <body class="site-layout">
+  <form id="logoutForm" action="/logout" method="POST" hidden>
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+  </form>
   <header class="site-header">
     <div class="site-layout__container">
 
@@ -66,7 +69,7 @@
                 <li><a class="site-header__menu-link" href="/dishes">Nabídka</a> </li>
                 <li><a class="site-header__menu-link" href="/admin">Administrace</a> </li>
 
-                <button class="site-header__logout-button" id="logoutBtn" type="button" aria-label="Odhlásit">
+                <button class="site-header__logout-button" id="logoutBtn" type="submit" form="logoutForm" aria-label="Odhlásit">
 
                   <i class="fa-solid fa-arrow-right-to-bracket"></i>
 
@@ -96,7 +99,7 @@
 
 
 
-              <a class="site-header__overlay-link" href="/logout">Odhlásit</a>
+              <a class="site-header__overlay-link" href="#" id="mobileLogoutBtn">Odhlásit</a>
 
 
 

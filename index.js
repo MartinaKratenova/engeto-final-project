@@ -2,6 +2,7 @@ import express from 'express';
 import 'dotenv/config';
 import bcrypt from 'bcrypt';
 import session from 'express-session';
+import { csrfProtection } from './middleware/csrf.js';
 
 import pg from 'pg';
 
@@ -26,9 +27,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: process.env.NODE_ENV === 'production'
+  }
 }
 ));
+app.use(csrfProtection);
 
 
 
@@ -231,7 +238,7 @@ app.post('/admin/:id/update', checkAuth, async (req, res, next) => {
 
 /*    Logout   */
 
-app.get('/logout', (req, res, next) => {
+app.post('/logout', (req, res, next) => {
   req.session.destroy((err) => {
     if (err) return next(err);
     res.redirect('/');

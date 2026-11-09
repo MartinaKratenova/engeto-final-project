@@ -1,6 +1,6 @@
 const closeNavBtn = document.getElementById("closeNavBtn");
 const openNavBtn = document.getElementById("openNavBtn");
-const logoutBtn = document.getElementById("logoutBtn");
+const mobileLogoutBtn = document.getElementById("mobileLogoutBtn");
 
 function openNav() {
   document.getElementById("myNav").classList.add("site-header__overlay--open");
@@ -20,6 +20,7 @@ openNavBtn.addEventListener('click', () => {
   openNav();
 
 });
-logoutBtn?.addEventListener('click', () => {
-  window.location.href = '/logout';
+mobileLogoutBtn?.addEventListener('click', (event) => {
+  event.preventDefault();
+  document.getElementById('logoutForm').requestSubmit();
 });
